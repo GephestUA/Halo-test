@@ -1,7 +1,9 @@
 const DATA_RECEIVED = 'DATA-RECEIVED';
 
 let initialValue = {
-  getInfo: false,
+  name: '',
+  surname: '',
+  phone: '',
 };
 
 const userInfoReducer = (state = initialValue, action) => {
@@ -14,9 +16,13 @@ const userInfoReducer = (state = initialValue, action) => {
   }
 };
 
-export const userData = (name) => ({
+export const getUserData = (name, surname, phone) => ({
   type: DATA_RECEIVED,
   payload: {
     name,
+    surname,
+    phone,
   },
 });
+
+export default userInfoReducer;

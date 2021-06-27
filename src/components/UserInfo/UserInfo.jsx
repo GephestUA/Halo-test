@@ -1,5 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import useInput from '../../customHooks/customInput';
+import { getUserData } from '../store/user-info-reducer';
 import ButtonService from './ButtonService/ButtonSendForm';
 import s from './UserInfo.module.scss';
 
@@ -10,6 +12,8 @@ export default function UserInfo() {
 
   let activeButton = name.checkName.status || surname.checkName.status || phone.checkPhone.status;
 
+  const dispatch = useDispatch();
+
   return (
     <div className={s.container}>
       <h1 className={s.title}>Enter name and phone number</h1>
@@ -17,7 +21,7 @@ export default function UserInfo() {
         noValidate={true}
         onSubmit={(e) => {
           e.preventDefault();
-          alert('ураааа!!!');
+          dispatch(getUserData(name.value, surname.value, phone.value));
         }}
       >
         <div className={s.userDetails}>
