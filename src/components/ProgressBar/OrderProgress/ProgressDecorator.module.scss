@@ -10,6 +10,19 @@
   margin-left: 24px;
 }
 
+.progressDecorator[disabled] {
+  &::after {
+    background-color: #dddddd;
+  }
+
+  .progressTwo {
+    background-color: #dddddd;
+  }
+  .progressThree {
+    background-color: #dddddd;
+  }
+}
+
 .progressItem {
   display: flex;
   align-items: center;

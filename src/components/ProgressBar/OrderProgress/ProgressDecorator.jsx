@@ -1,10 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styles from './ProgressDecorator.module.scss';
 
 export default function ProgressDecorator(props) {
   let nameDecorator = props.decoratorName;
 
-  const decoratorClass = (name) => {
+  const decoratorCurrentPage = (name) => {
     switch (name) {
       case 1: {
         return styles.progressOne;
@@ -21,9 +22,9 @@ export default function ProgressDecorator(props) {
   };
 
   return (
-    <div className={styles.progressDecorator}>
+    <div className={styles.progressDecorator} disabled={props.disabled}>
       <div className={styles.progressItem}>
-        <span className={decoratorClass(nameDecorator)}></span>
+        <span className={decoratorCurrentPage(nameDecorator)}></span>
         <p>Name and phone</p>
       </div>
     </div>
