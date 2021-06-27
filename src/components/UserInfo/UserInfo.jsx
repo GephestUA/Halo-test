@@ -35,7 +35,7 @@ export default function UserInfo() {
             {surname.noValid && surname.checkName.status && <p className={s.errors}>{name.checkName.text}</p>}
             <input {...surname.bind} name="surname" type="text" placeholder="Statham" />
           </div>
-          <div className={s.inputBox}>
+          <div className={`${s.inputBox}  ${phone.noValid && phone.checkPhone.status && s.errorInput}`}>
             <span className={s.details}>Phone number</span>
             {phone.noValid && phone.checkPhone.status && <p className={s.errors}>{phone.checkPhone.text}</p>}
             <input {...phone.bind} name="phone" type="text" placeholder="(555) 555-5555" />
