@@ -1,13 +1,29 @@
+@import '../../common/helpers.scss';
+
 .container {
   max-width: 960px;
   width: 100%;
   padding: 32px 40px 30px 48px;
+
+  @media (max-width: 767px) {
+    padding: 16px 20px 15px 24px;
+  }
+  @media (max-width: 320px) {
+    padding: 8px 10px 7px 12px;
+  }
 
   .title {
     font-weight: 600;
     font-size: 24px;
     line-height: 28px;
     margin-bottom: 30px;
+    margin-top: 0px;
+
+    @media (max-width: 1280px) {
+      @include adaptive-value(font-size, 24, 10);
+      @include adaptive-value(line-height, 28, 12);
+      @include adaptive-value(margin-bottom, 30, 14);
+    }
   }
 
   form .userDetails {
@@ -16,15 +32,18 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 270px;
-
-    @media (max-width: 584px) {
-      margin-bottom: 25px;
-    }
   }
 
   form .userDetails .inputBox {
     width: calc(100% / 2 - 20px);
     margin-bottom: 20px;
+    min-width: 200px;
+
+    @media (max-width: 767px) {
+      align-items: stretch;
+      flex-direction: column;
+      min-width: 100%;
+    }
   }
 
   .userDetails .inputBox input {
@@ -39,6 +58,11 @@
     color: #171a28;
     opacity: 0.7;
     padding-left: 16px;
+
+    @media (max-width: 320px) {
+      @include adaptive-value(font-size, 16, 10);
+      @include adaptive-value(height, 45, 25);
+    }
   }
 
   .details {
@@ -46,6 +70,10 @@
     font-size: 14px;
     line-height: 16px;
     display: block;
+
+    @media (max-width: 320px) {
+      @include adaptive-value(font-size, 14, 10);
+    }
   }
 
   .userDetails .inputBox input:focus {
@@ -70,6 +98,11 @@
   form {
     display: flex;
     align-items: flex-end;
+
+    @media (max-width: 767px) {
+      align-items: stretch;
+      flex-direction: column;
+    }
 
     @media (max-width: 584px) {
       align-items: stretch;

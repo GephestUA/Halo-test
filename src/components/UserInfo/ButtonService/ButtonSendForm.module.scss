@@ -1,3 +1,5 @@
+@import '../../../common/helpers.scss';
+
 .button {
   height: 64px;
 }
@@ -29,4 +31,16 @@
 .button input:disabled {
   background: #bfd6ff;
   transition: 1s;
+}
+
+@media (max-width: 1200px) {
+  .button input {
+    font-size: calc(11px + (18 -11) * ((100vw - 320px) / (1280-320)));
+    line-height: calc(14px + (21 -14) * ((100vw - 320px) / (1280-320)));
+    padding: 0 calc(15px + (30 -15) * ((100vw - 320px) / (1280-320)));
+  }
+
+  .button {
+    @include adaptive-value(height, 64, 32);
+  }
 }
