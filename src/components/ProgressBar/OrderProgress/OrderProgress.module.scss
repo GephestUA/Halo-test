@@ -10,9 +10,44 @@
   margin-left: 24px;
 }
 
+.mobileProgress {
+  display: none;
+  @media (max-width: 480px) {
+    & {
+      display: flex;
+      flex-direction: column;
+
+      div {
+        width: 100%;
+        text-align: center;
+        border: 1px solid #005bff;
+        color: white;
+        line-height: 18px;
+        font-weight: 600;
+        padding: 5px 0;
+        background-color: #ff9b05;
+        @include adaptive-value(font-size, 15, 11);
+
+        &:nth-child(-n + 2) {
+          border-bottom: 2px dashed green;
+        }
+      }
+    }
+  }
+}
+
 .progress {
-  padding-left: 31px;
+  padding-left: 30px;
   padding-top: 30px;
+
+  @media (max-width: 1280px) {
+    @include adaptive-value(padding-left, 30, 15);
+    @include adaptive-value(padding-top, 30, 15);
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 }
 .progressItem {
   display: flex;

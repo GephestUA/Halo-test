@@ -8,8 +8,8 @@
   @media (max-width: 767px) {
     padding: 16px 20px 15px 24px;
   }
-  @media (max-width: 320px) {
-    padding: 8px 10px 7px 12px;
+  @media (max-width: 480px) {
+    padding: 18px 10px 7px 12px;
   }
 
   .title {
@@ -32,12 +32,19 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 270px;
+
+    @media (max-width: 480px) {
+      @include adaptive-value(margin-bottom, 270, 100);
+    }
   }
 
   form .userDetails .inputBox {
     width: calc(100% / 2 - 20px);
     margin-bottom: 20px;
-    min-width: 200px;
+
+    @media (max-width: 1024px) {
+      min-width: 280px;
+    }
 
     @media (max-width: 767px) {
       align-items: stretch;
@@ -59,7 +66,7 @@
     opacity: 0.7;
     padding-left: 16px;
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       @include adaptive-value(font-size, 16, 10);
       @include adaptive-value(height, 45, 25);
     }
@@ -71,8 +78,8 @@
     line-height: 16px;
     display: block;
 
-    @media (max-width: 320px) {
-      @include adaptive-value(font-size, 14, 10);
+    @media (max-width: 480px) {
+      @include adaptive-value(font-size, 14, 12);
     }
   }
 
@@ -102,10 +109,6 @@
     @media (max-width: 767px) {
       align-items: stretch;
       flex-direction: column;
-    }
-
-    @media (max-width: 584px) {
-      align-items: stretch;
     }
   }
 

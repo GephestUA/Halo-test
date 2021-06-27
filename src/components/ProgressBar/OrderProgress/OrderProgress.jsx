@@ -24,6 +24,17 @@ export default function OrderProgress() {
           </div>
         </div>
       </div>
+      <div className={styles.mobileProgress}>
+        <div>
+          <p>Enter name</p>
+        </div>
+        <div>
+          <p>Select the service</p>
+        </div>
+        <div>
+          <p>Select clinics</p>
+        </div>
+      </div>
     </div>
   );
 }
