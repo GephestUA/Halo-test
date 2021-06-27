@@ -31,10 +31,13 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 270px;
+    @include adaptive-value(margin-bottom, 270, 50);
 
-    @media (max-width: 480px) {
-      @include adaptive-value(margin-bottom, 270, 100);
+    @media (max-width: 767px) {
+      margin-bottom: 50px;
+      @media (orientation: landscape) {
+        margin-bottom: 5px;
+      }
     }
   }
 
@@ -43,7 +46,7 @@
     margin-bottom: 20px;
 
     @media (max-width: 1024px) {
-      min-width: 280px;
+      min-width: 310px;
     }
 
     @media (max-width: 767px) {

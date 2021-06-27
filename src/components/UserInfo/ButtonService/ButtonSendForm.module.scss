@@ -35,9 +35,9 @@
 
 @media (max-width: 1200px) {
   .button input {
-    font-size: calc(11px + (18 -11) * ((100vw - 320px) / (1280-320)));
-    line-height: calc(14px + (21 -14) * ((100vw - 320px) / (1280-320)));
-    padding: 0 calc(15px + (30 -15) * ((100vw - 320px) / (1280-320)));
+    @include adaptive-value(font-size, 18, 11);
+    @include adaptive-value(line-height, 21, 14);
+    padding: 0 calc(10px + (30 -10) * ((100vw - 320px) / (1280-320)));
   }
 
   .button {
