@@ -9,9 +9,14 @@ export default function OrderProgress() {
   return (
     <div>
       <div className={styles.progress}>
-        <ProgressDecorator decoratorName={1} />
-        <ProgressDecorator decoratorName={2} disabled={stage === 1 ? true : false} />
-        <ProgressDecorator decoratorName={3} disabled={stage === 1 || 2 ? true : false} />
+        <ProgressDecorator decoratorName={1} progressAfterLine="true" success={stage >= 2 ? true : false} />
+        <ProgressDecorator
+          decoratorName={2}
+          progressAfterLine="true"
+          disabled={stage <= 1 ? true : false}
+          success={stage >= 3 ? true : false}
+        />
+        <ProgressDecorator decoratorName={3} disabled={stage <= 2 ? true : false} success={stage >= 4 ? true : false} />
       </div>
       <div className={styles.mobileProgress}>
         <div>

@@ -1,8 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import styles from './ProgressDecorator.module.scss';
 
-export default function ProgressDecorator(props) {
+const ProgressDecorator = (props) => {
   let nameDecorator = props.decoratorName;
 
   const decoratorCurrentPage = (name) => {
@@ -21,12 +20,16 @@ export default function ProgressDecorator(props) {
     }
   };
 
+  let line = props.progressAfterLine ? styles.progressAfterLine : '';
+
   return (
-    <div className={styles.progressDecorator} disabled={props.disabled}>
+    <div className={`${line} ${styles.progressDecorator}`} disabled={props.disabled} data-success={props.success}>
       <div className={styles.progressItem}>
         <span className={decoratorCurrentPage(nameDecorator)}></span>
         <p>Name and phone</p>
       </div>
     </div>
   );
-}
+};
+
+export default ProgressDecorator;

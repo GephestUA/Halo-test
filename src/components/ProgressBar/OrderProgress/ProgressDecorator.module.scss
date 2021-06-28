@@ -1,6 +1,6 @@
 @import '../../../common/helpers.scss';
 
-.progressDecorator:nth-child(-n + 2)::after {
+.progressAfterLine::after {
   content: '';
   width: 1px;
   height: 31px;
@@ -10,16 +10,15 @@
   margin-left: 24px;
 }
 
-.progressDecorator[disabled] {
+.progressAfterLine[disabled] {
   &::after {
     background-color: #dddddd;
   }
+}
 
-  .progressTwo {
-    background-color: #dddddd;
-  }
-  .progressThree {
-    background-color: #dddddd;
+.progressAfterLine[data-success='true'] {
+  &::after {
+    background-color: #07a58e;
   }
 }
 
@@ -55,4 +54,25 @@
 .progressThree {
   @include progress-item();
   background-image: url(../../../assets/image/3.svg);
+}
+
+.progressDecorator[disabled] {
+  .progressTwo {
+    background-color: #dddddd;
+  }
+  .progressThree {
+    background-color: #dddddd;
+  }
+}
+.progressDecorator[data-success='true'] {
+  .progressOne {
+    background-color: #07a58e;
+    background-image: url(../../../assets/image/Success.svg);
+    background-size: 17px 14px;
+  }
+  .progressTwo {
+    background-color: #07a58e;
+    background-image: url(../../../assets/image/Success.svg);
+    background-size: 17px 14px;
+  }
 }
