@@ -1,5 +1,6 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import useInput from '../../customHooks/customInput';
 import { getStageInfo } from '../../store/app-controller-reducer';
 import { getUserData } from '../../store/user-info-reducer';
@@ -12,9 +13,21 @@ export default function UserInfo() {
   const surname = useInput('', { checkName: true });
   const phone = useInput('', { checkPhone: true });
 
+  const stage2History = useHistory();
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.userInfo);
+
+  const changePage = () => {
+    stage2History.push('/stage2');
+  };
+
   let activeButton = name.checkName.status || surname.checkName.status || phone.checkPhone.status;
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    name.setValue(state.name);
+    surname.setValue(state.surname);
+    phone.setValue(state.phone);
+  }, [state.name, state.surname, state.phone]);
 
   return (
     <div className={s.container}>
@@ -25,6 +38,7 @@ export default function UserInfo() {
           e.preventDefault();
           dispatch(getUserData(name.value, surname.value, phone.value));
           dispatch(getStageInfo(2));
+          changePage();
         }}
       >
         <div className={s.userDetails}>

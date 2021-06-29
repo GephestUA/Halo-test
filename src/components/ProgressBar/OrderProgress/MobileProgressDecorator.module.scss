@@ -1,0 +1,28 @@
+@import '../../../common/helpers.scss';
+
+.mobileProgressDecorator {
+  width: 100%;
+  text-align: center;
+  border: 1px solid #005bff;
+  color: white;
+  line-height: 18px;
+  font-weight: 600;
+  padding: 5px 0;
+  background-color: #ff9b05;
+  @include adaptive-value(font-size, 15, 11);
+}
+
+.mobileProgressDecorator[disabled] {
+  background-color: #dddd;
+
+  p {
+    color: black;
+  }
+}
+.mobileProgressDecorator[data-success='true'] {
+  background-color: #07a58e;
+
+  p {
+    color: gold;
+  }
+}

@@ -23,5 +23,6 @@ export default function useInput(initialValue, validations) {
     ...valid,
     noValid,
     value,
+    setValue,
   };
 }
