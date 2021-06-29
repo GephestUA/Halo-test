@@ -6,7 +6,7 @@ import styles from './ServiceInfo.module.scss';
 export default function ServiceInfo() {
   const stage = useSelector((state) => state.appControls.stage);
 
-  if (stage != 2) {
+  if (stage < 2) {
     return <Redirect to="/" />;
   }
 

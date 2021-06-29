@@ -10,21 +10,42 @@ export default function OrderProgress() {
   return (
     <div>
       <div className={styles.progress}>
-        <ProgressDecorator decoratorName={1} progressAfterLine="true" success={stage >= 2 ? true : false} />
+        <ProgressDecorator
+          decoratorName={1}
+          progressAfterLine="true"
+          success={stage >= 2 ? true : false}
+          navigate={'/'}
+        />
         <ProgressDecorator
           decoratorName={2}
           progressAfterLine="true"
           disabled={stage <= 1 ? true : false}
           success={stage >= 3 ? true : false}
+          navigate={'/stage2'}
         />
-        <ProgressDecorator decoratorName={3} disabled={stage <= 2 ? true : false} success={stage >= 4 ? true : false} />
+        <ProgressDecorator
+          decoratorName={3}
+          disabled={stage <= 2 ? true : false}
+          success={stage >= 4 ? true : false}
+          navigate={'/stage3'}
+        />
       </div>
       <div className={styles.mobileProgress}>
-        <MobileProgressDecorator success={stage >= 2 ? true : false}>Enter name</MobileProgressDecorator>
-        <MobileProgressDecorator disabled={stage <= 1 ? true : false} success={stage >= 3 ? true : false}>
+        <MobileProgressDecorator success={stage >= 2 ? true : false} navigate={'/'}>
+          Enter name
+        </MobileProgressDecorator>
+        <MobileProgressDecorator
+          disabled={stage <= 1 ? true : false}
+          success={stage >= 3 ? true : false}
+          navigate={'/stage2'}
+        >
           Select the service
         </MobileProgressDecorator>
-        <MobileProgressDecorator disabled={stage <= 2 ? true : false} success={stage >= 4 ? true : false}>
+        <MobileProgressDecorator
+          disabled={stage <= 2 ? true : false}
+          success={stage >= 4 ? true : false}
+          navigate={'/stage3'}
+        >
           Select clinics
         </MobileProgressDecorator>
       </div>

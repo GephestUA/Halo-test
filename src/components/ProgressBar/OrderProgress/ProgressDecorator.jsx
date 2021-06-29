@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ProgressDecorator.module.scss';
+import { NavLink } from 'react-router-dom';
 
 const ProgressDecorator = (props) => {
   let nameDecorator = props.decoratorName;
@@ -21,14 +22,21 @@ const ProgressDecorator = (props) => {
   };
 
   let line = props.progressAfterLine ? styles.progressAfterLine : '';
+  let disabledLine = props.disabled ? styles.disabledLine : '';
+  let successStage = props.success ? styles.successStage : '';
 
   return (
-    <div className={`${line} ${styles.progressDecorator}`} disabled={props.disabled} data-success={props.success}>
+    <NavLink
+      to={`${props.navigate}`}
+      className={`${line} ${styles.progressDecorator} ${disabledLine}`}
+      disabled={props.disabled}
+      data-success={props.success}
+    >
       <div className={styles.progressItem}>
-        <span className={decoratorCurrentPage(nameDecorator)}></span>
-        <p>Name and phone</p>
+        <span className={`${decoratorCurrentPage(nameDecorator)} ${successStage}`}></span>
+        <p className={styles.texInDecorator}>Name and phone</p>
       </div>
-    </div>
+    </NavLink>
   );
 };
 

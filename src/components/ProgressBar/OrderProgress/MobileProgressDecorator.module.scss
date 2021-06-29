@@ -10,6 +10,7 @@
   padding: 5px 0;
   background-color: #ff9b05;
   @include adaptive-value(font-size, 15, 11);
+  text-decoration: none;
 }
 
 .mobileProgressDecorator[disabled] {
@@ -25,4 +26,8 @@
   p {
     color: gold;
   }
+}
+
+.disabledLine[disabled] {
+  pointer-events: none;
 }
