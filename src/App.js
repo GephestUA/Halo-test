@@ -11,7 +11,7 @@ function App() {
     <Router>
       <div className={styles.appWrapper}>
         <ProgressBar />
-        <div className={styles.container}>
+        <section className={styles.container}>
           <div className={styles.titleBlock}>
             <MainTitle />
           </div>
@@ -19,7 +19,7 @@ function App() {
             <Route exact path="/" render={() => <UserInfo />} />
             <Route path="/stage2" render={() => <ServiceInfo />} />
           </Switch>
-        </div>
+        </section>
       </div>
     </Router>
   );

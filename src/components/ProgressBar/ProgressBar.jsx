@@ -6,10 +6,10 @@ import ButtonBack from '../../common/ButtonBack/ButtonBack';
 
 export default function ProgressBar() {
   return (
-    <div className={styles.progressBarWrapper}>
+    <nav className={styles.progressBarWrapper}>
       <Logo />
       <ButtonBack />
       <OrderProgress />
-    </div>
+    </nav>
   );
 }

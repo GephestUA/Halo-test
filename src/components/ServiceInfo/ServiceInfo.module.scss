@@ -1,1 +1,82 @@
+.serviceWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
+.service {
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  max-width: 280px;
+}
+
+.serviceImage {
+  object-fit: cover;
+  margin: 8px 8px 20px 8px;
+}
+
+.serviceDescription {
+  margin: 0px 16px 16px 16px;
+}
+
+.serviceHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 8px;
+
+  ins {
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .serviceTitle {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #4d4d4d;
+  }
+}
+
+.serviceTeknoligi {
+  background: #ff6400;
+  border-radius: 100px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: #ffffff;
+  max-width: 130px;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.serviceText {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+  color: #acacac;
+  margin-bottom: 16px;
+}
+
+.buttonBlock {
+  display: flex;
+  justify-content: flex-end;
+
+  .serviceButton {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration-line: underline;
+    color: #005bff;
+  }
+}
