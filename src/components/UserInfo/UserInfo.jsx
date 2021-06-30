@@ -55,7 +55,7 @@ export default function UserInfo() {
           <input {...phone.bind} name="phone" type="text" placeholder="(555) 555-5555" />
         </div>
       </div>
-      <div>
+      <div className={s.buttonWrapper}>
         <ButtonService btnName="Choose service" btnStatus={activeButton} />
       </div>
     </form>
