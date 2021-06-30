@@ -2,10 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import useInput from '../../customHooks/customInput';
-import MainTitle from '../../common/MainTitle/MainTitle';
 import { getStageInfo } from '../../store/app-controller-reducer';
 import { getUserData } from '../../store/user-info-reducer';
-
 import ButtonService from './ButtonService/ButtonSendForm';
 import s from './UserInfo.module.scss';
 
@@ -18,7 +16,10 @@ export default function UserInfo() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userInfo);
 
-  const changePage = () => {
+  const handleSubmitStage1 = (e) => {
+    e.preventDefault();
+    dispatch(getUserData(name.value, surname.value, phone.value));
+    dispatch(getStageInfo(2));
     stage2History.push('/stage2');
   };
 
@@ -31,40 +32,32 @@ export default function UserInfo() {
   }, [state.name, state.surname, state.phone]);
 
   return (
-    <div className={s.container}>
-      <div className={s.titleBlock}>
-        <MainTitle />
+    <form
+      noValidate={true}
+      onSubmit={(e) => {
+        handleSubmitStage1(e);
+      }}
+    >
+      <div className={s.userDetails}>
+        <div className={`${s.inputBox}  ${name.noValid && name.checkName.status && s.errorInput}`}>
+          <span className={s.details}>Full name</span>
+          {name.noValid && name.checkName.status && <p className={s.errors}>{name.checkName.text}</p>}
+          <input {...name.bind} name="name" type="text" placeholder="Jason" />
+        </div>
+        <div className={`${s.inputBox}  ${surname.noValid && surname.checkName.status && s.errorInput}`}>
+          <span className={s.details}></span>
+          {surname.noValid && surname.checkName.status && <p className={s.errors}>{surname.checkName.text}</p>}
+          <input {...surname.bind} name="surname" type="text" placeholder="Statham" />
+        </div>
+        <div className={`${s.inputBox}  ${phone.noValid && phone.checkPhone.status && s.errorInput}`}>
+          <span className={s.details}>Phone number</span>
+          {phone.noValid && phone.checkPhone.status && <p className={s.errors}>{phone.checkPhone.text}</p>}
+          <input {...phone.bind} name="phone" type="text" placeholder="(555) 555-5555" />
+        </div>
       </div>
-      <form
-        noValidate={true}
-        onSubmit={(e) => {
-          e.preventDefault();
-          dispatch(getUserData(name.value, surname.value, phone.value));
-          dispatch(getStageInfo(2));
-          changePage();
-        }}
-      >
-        <div className={s.userDetails}>
-          <div className={`${s.inputBox}  ${name.noValid && name.checkName.status && s.errorInput}`}>
-            <span className={s.details}>Full name</span>
-            {name.noValid && name.checkName.status && <p className={s.errors}>{name.checkName.text}</p>}
-            <input {...name.bind} name="name" type="text" placeholder="Jason" />
-          </div>
-          <div className={`${s.inputBox}  ${surname.noValid && surname.checkName.status && s.errorInput}`}>
-            <span className={s.details}></span>
-            {surname.noValid && surname.checkName.status && <p className={s.errors}>{surname.checkName.text}</p>}
-            <input {...surname.bind} name="surname" type="text" placeholder="Statham" />
-          </div>
-          <div className={`${s.inputBox}  ${phone.noValid && phone.checkPhone.status && s.errorInput}`}>
-            <span className={s.details}>Phone number</span>
-            {phone.noValid && phone.checkPhone.status && <p className={s.errors}>{phone.checkPhone.text}</p>}
-            <input {...phone.bind} name="phone" type="text" placeholder="(555) 555-5555" />
-          </div>
-        </div>
-        <div>
-          <ButtonService btnName="Choose service" btnStatus={activeButton} />
-        </div>
-      </form>
-    </div>
+      <div>
+        <ButtonService btnName="Choose service" btnStatus={activeButton} />
+      </div>
+    </form>
   );
 }

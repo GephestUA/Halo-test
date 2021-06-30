@@ -1,135 +1,115 @@
 @import '../../common/helpers.scss';
 
-.container {
-  max-width: 960px;
-  width: 100%;
-  padding: 32px 40px 30px 48px;
+form .userDetails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  @include adaptive-value(margin-bottom, 270, 50);
 
   @media (max-width: 767px) {
-    padding: 16px 20px 15px 24px;
-  }
-  @media (max-width: 480px) {
-    padding: 18px 10px 7px 12px;
-  }
-
-  .titleBlock {
-    margin-bottom: 30px;
-  }
-
-  form .userDetails {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
-    @include adaptive-value(margin-bottom, 270, 50);
-
-    @media (max-width: 767px) {
-      margin-bottom: 50px;
-      @media (orientation: landscape) {
-        margin-bottom: 5px;
-      }
+    margin-bottom: 50px;
+    @media (orientation: landscape) {
+      margin-bottom: 5px;
     }
   }
+}
 
-  form .userDetails .inputBox {
-    width: calc(100% / 2 - 20px);
-    margin-bottom: 20px;
+form .userDetails .inputBox {
+  width: calc(100% / 2 - 20px);
+  margin-bottom: 20px;
 
-    @media (max-width: 1024px) {
-      min-width: 310px;
-    }
-
-    @media (max-width: 767px) {
-      align-items: stretch;
-      flex-direction: column;
-      min-width: 100%;
-    }
+  @media (max-width: 1024px) {
+    min-width: 310px;
   }
 
-  .userDetails .inputBox {
-    input {
-      height: 45px;
-      width: 100%;
-      margin-top: 5px;
-      outline: none;
-      border: 1px solid #d1d1d4;
-      border-radius: 5px;
-      font-size: 16px;
-      line-height: 19px;
-      color: #171a28;
-      opacity: 0.7;
-      padding-left: 16px;
-
-      @media (max-width: 480px) {
-        @include adaptive-value(font-size, 16, 10);
-        @include adaptive-value(height, 45, 25);
-      }
-    }
-
-    .errorInput {
-      background: rgba(235, 87, 87, 0.2);
-      border: 1px solid #eb5757;
-    }
+  @media (max-width: 767px) {
+    align-items: stretch;
+    flex-direction: column;
+    min-width: 100%;
   }
-  .userDetails .errorInput {
-    input {
-      background: rgba(235, 87, 87, 0.2);
-      border: 1px solid #eb5757;
-    }
-  }
+}
 
-  .details {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-    display: block;
+.userDetails .inputBox {
+  input {
+    height: 45px;
+    width: 100%;
+    margin-top: 5px;
+    outline: none;
+    border: 1px solid #d1d1d4;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #171a28;
+    opacity: 0.7;
+    padding-left: 16px;
 
     @media (max-width: 480px) {
-      @include adaptive-value(font-size, 14, 12);
+      @include adaptive-value(font-size, 16, 10);
+      @include adaptive-value(height, 45, 25);
     }
   }
 
-  .userDetails .inputBox input:focus {
-    opacity: 1;
-    border-color: #005bff;
-    box-shadow: 0px 0px 0px 2px #2f80ed;
-    border: 1px solid #d1d1d4;
-    background: #ffffff;
+  .errorInput {
+    background: rgba(235, 87, 87, 0.2);
+    border: 1px solid #eb5757;
   }
-
-  .userDetails .inputBox input:valid {
-    opacity: 1;
+}
+.userDetails .errorInput {
+  input {
+    background: rgba(235, 87, 87, 0.2);
+    border: 1px solid #eb5757;
   }
+}
 
-  .userDetails .inputBox input:hover {
-    background: #ffffff;
-    border: 1px solid #005bff;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-    caret-color: #005bff;
+.details {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  display: block;
+
+  @media (max-width: 480px) {
+    @include adaptive-value(font-size, 14, 12);
   }
+}
 
-  @media (max-width: 584px) {
-    .container {
-      max-width: 100%;
-    }
-    form .userDetails .inputBox {
-      width: 100%;
-    }
+.userDetails .inputBox input:focus {
+  opacity: 1;
+  border-color: #005bff;
+  box-shadow: 0px 0px 0px 2px #2f80ed;
+  border: 1px solid #d1d1d4;
+  background: #ffffff;
+}
+
+.userDetails .inputBox input:valid {
+  opacity: 1;
+}
+
+.userDetails .inputBox input:hover {
+  background: #ffffff;
+  border: 1px solid #005bff;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+  caret-color: #005bff;
+}
+
+@media (max-width: 584px) {
+  form .userDetails .inputBox {
+    width: 100%;
   }
+}
 
-  form {
-    display: flex;
-    align-items: flex-end;
+form {
+  display: flex;
+  align-items: flex-end;
 
-    @media (max-width: 767px) {
-      align-items: stretch;
-      flex-direction: column;
-    }
+  @media (max-width: 767px) {
+    align-items: stretch;
+    flex-direction: column;
   }
+}
 
-  .errors {
-    color: red;
-    font-size: 10px;
-    font-weight: 600;
-  }
+.errors {
+  color: red;
+  font-size: 10px;
+  font-weight: 600;
 }
