@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import useInput from '../../customHooks/customInput';
+import MainTitle from '../../common/MainTitle/MainTitle';
 import { getStageInfo } from '../../store/app-controller-reducer';
 import { getUserData } from '../../store/user-info-reducer';
 
@@ -31,7 +32,9 @@ export default function UserInfo() {
 
   return (
     <div className={s.container}>
-      <h1 className={s.title}>Enter name and phone number</h1>
+      <div className={s.titleBlock}>
+        <MainTitle />
+      </div>
       <form
         noValidate={true}
         onSubmit={(e) => {
