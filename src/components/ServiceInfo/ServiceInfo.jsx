@@ -4,6 +4,7 @@ import { Redirect } from 'react-router';
 import styles from './ServiceInfo.module.scss';
 import ButtonService from '../UserInfo/ButtonService/ButtonSendForm';
 import ServiceBG from '../../assets/image/ServiceBG.png';
+import MainTitle from '../../common/MainTitle/MainTitle';
 
 export default function ServiceInfo() {
   const stage = useSelector((state) => state.appControls.stage);
@@ -14,6 +15,7 @@ export default function ServiceInfo() {
 
   return (
     <div>
+      <MainTitle> Select the service</MainTitle>
       <div className={styles.serviceWrapper}>
         <div className={styles.serviceCart}>
           <article className={styles.service}>

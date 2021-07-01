@@ -6,6 +6,7 @@ import { getStageInfo } from '../../store/app-controller-reducer';
 import { getUserData } from '../../store/user-info-reducer';
 import ButtonService from './ButtonService/ButtonSendForm';
 import s from './UserInfo.module.scss';
+import MainTitle from '../../common/MainTitle/MainTitle';
 
 export default function UserInfo() {
   const name = useInput('', { checkName: true });
@@ -38,6 +39,7 @@ export default function UserInfo() {
         handleSubmitStage1(e);
       }}
     >
+      <MainTitle>Enter name and phone number</MainTitle>
       <div className={s.userDetails}>
         <div className={`${s.inputBox}  ${name.noValid && name.checkName.status && s.errorInput}`}>
           <span className={s.details}>Full name</span>

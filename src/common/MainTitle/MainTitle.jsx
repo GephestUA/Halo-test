@@ -1,7 +1,11 @@
 import styles from './MainTitle.module.scss';
 
 function MainTitle(props) {
-  return <h1 className={styles.title}>Enter name and phone number</h1>;
+  return (
+    <div className={styles.titleBlock}>
+      <h1 className={styles.title}>{props.children}</h1>
+    </div>
+  );
 }
 
 export default MainTitle;

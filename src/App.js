@@ -12,9 +12,6 @@ function App() {
       <div className={styles.appWrapper}>
         <ProgressBar />
         <section className={styles.container}>
-          <div className={styles.titleBlock}>
-            <MainTitle />
-          </div>
           <Switch>
             <Route exact path="/" render={() => <UserInfo />} />
             <Route path="/stage2" render={() => <ServiceInfo />} />
