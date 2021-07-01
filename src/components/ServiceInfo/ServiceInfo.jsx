@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
 import styles from './ServiceInfo.module.scss';
+import ButtonService from '../UserInfo/ButtonService/ButtonSendForm';
 import ServiceBG from '../../assets/image/ServiceBG.png';
 
 export default function ServiceInfo() {
@@ -12,60 +13,71 @@ export default function ServiceInfo() {
   }
 
   return (
-    <div className={styles.serviceWrapper}>
-      <div className={styles.serviceCart}>
-        <article className={styles.service}>
-          <img src={ServiceBG} width="264px" height="152px" className={styles.serviceImage}></img>
-          <div className={styles.serviceDescription}>
-            <div className={styles.serviceHeader}>
-              <h3 className={styles.serviceTitle}>Covid-19 test (RT-PCR)</h3>
-              <ins className={styles.servicePrice}>$ 250</ins>
+    <div>
+      <div className={styles.serviceWrapper}>
+        <div className={styles.serviceCart}>
+          <article className={styles.service}>
+            <div className={styles.serviceImageBG}>
+              <img src={ServiceBG} className={styles.serviceImage}></img>
             </div>
-            <p className={styles.serviceTeknoligi}>Intelligent diagnostics</p>
-            <p className={styles.serviceText}>
-              Covid-19 Molecular Detection. Detection from the first day of infection.
-            </p>
-            <div className={styles.buttonBlock}>
-              <button className={styles.serviceButton}>Choose exam</button>
+            <div className={styles.serviceDescription}>
+              <div className={styles.serviceHeader}>
+                <h3 className={styles.serviceTitle}>Covid-19 test (RT-PCR)</h3>
+                <ins className={styles.servicePrice}>$ 250</ins>
+              </div>
+              <p className={styles.serviceTeknoligi}>Intelligent diagnostics</p>
+              <p className={styles.serviceText}>
+                Covid-19 Molecular Detection. Detection from the first day of infection.
+              </p>
+              <div className={styles.buttonBlock}>
+                <button className={styles.serviceButton}>Choose exam</button>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
+        <div className={styles.serviceCart}>
+          <article className={styles.service}>
+            <div className={styles.serviceImageBG}>
+              <img src={ServiceBG} className={styles.serviceImage}></img>
+            </div>
+            <div className={styles.serviceDescription}>
+              <div className={styles.serviceHeader}>
+                <h3 className={styles.serviceTitle}>Covid-19 test (RT-PCR)</h3>
+                <ins className={styles.servicePrice}>$ 250</ins>
+              </div>
+              <p className={styles.serviceTeknoligi}>Intelligent diagnostics</p>
+              <p className={styles.serviceText}>
+                Covid-19 Molecular Detection. Detection from the first day of infection.
+              </p>
+              <div className={styles.buttonBlock}>
+                <button className={styles.serviceButton}>Choose exam</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className={styles.serviceCart}>
+          <article className={styles.service}>
+            <div className={styles.serviceImageBG}>
+              <img src={ServiceBG} className={styles.serviceImage}></img>
+            </div>
+            <div className={styles.serviceDescription}>
+              <div className={styles.serviceHeader}>
+                <h3 className={styles.serviceTitle}>Covid-19 test (RT-PCR)</h3>
+                <ins className={styles.servicePrice}>$ 250</ins>
+              </div>
+              <p className={styles.serviceTeknoligi}>Intelligent diagnostics</p>
+              <p className={styles.serviceText}>
+                Covid-19 Molecular Detection. Detection from the first day of infection.
+              </p>
+              <div className={styles.buttonBlock}>
+                <button className={styles.serviceButton}>Choose exam</button>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-      <div className={styles.serviceCart}>
-        <article className={styles.service}>
-          <img src={ServiceBG} width="264px" height="152px" className={styles.serviceImage}></img>
-          <div className={styles.serviceDescription}>
-            <div className={styles.serviceHeader}>
-              <h3 className={styles.serviceTitle}>Covid-19 test (RT-PCR)</h3>
-              <ins className={styles.servicePrice}>$ 250</ins>
-            </div>
-            <p className={styles.serviceTeknoligi}>Intelligent diagnostics</p>
-            <p className={styles.serviceText}>
-              Covid-19 Molecular Detection. Detection from the first day of infection.
-            </p>
-            <div className={styles.buttonBlock}>
-              <button className={styles.serviceButton}>Choose exam</button>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div className={styles.serviceCart}>
-        <article className={styles.service}>
-          <img src={ServiceBG} width="264px" height="152px" className={styles.serviceImage}></img>
-          <div className={styles.serviceDescription}>
-            <div className={styles.serviceHeader}>
-              <h3 className={styles.serviceTitle}>Covid-19 test (RT-PCR)</h3>
-              <ins className={styles.servicePrice}>$ 250</ins>
-            </div>
-            <p className={styles.serviceTeknoligi}>Intelligent diagnostics</p>
-            <p className={styles.serviceText}>
-              Covid-19 Molecular Detection. Detection from the first day of infection.
-            </p>
-            <div className={styles.buttonBlock}>
-              <button className={styles.serviceButton}>Choose exam</button>
-            </div>
-          </div>
-        </article>
+      <div className={styles.nextButton}>
+        <ButtonService btnName="Continue schedule" />
       </div>
     </div>
   );
