@@ -1,0 +1,53 @@
+@import '../../../common/helpers.scss';
+
+.providerWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.provider {
+  width: 100%;
+}
+
+.outerBorder {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.innerBorder {
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.providerTitle {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000000;
+  margin-left: 19px;
+  max-width: 165px;
+}
+
+.providerCityBlock {
+  margin-left: 48px;
+}
+
+.providerLocationBlock {
+  margin-left: 270px;
+}
+
+.providerCityBlock,
+.providerLocationBlock {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #4f4f4f;
+
+  p:first-child {
+    font-weight: 600;
+  }
+}
