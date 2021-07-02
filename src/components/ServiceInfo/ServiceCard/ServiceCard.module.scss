@@ -84,6 +84,7 @@
   line-height: 20px;
   color: #acacac;
   margin-bottom: 16px;
+  min-height: 80px;
   @media (max-width: 950px) {
     @include adaptive-value(font-size, 13, 10);
     @include adaptive-value(line-height, 20, 15);
@@ -106,6 +107,7 @@
     line-height: 19px;
     text-decoration-line: underline;
     color: #005bff;
+    cursor: pointer;
 
     @media (max-width: 950px) {
       @include adaptive-value(font-size, 16, 11);

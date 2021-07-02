@@ -1,7 +1,8 @@
 import styles from './ServiceCard.module.scss';
 import ServiceBG from '../../../assets/image/ServiceBG.png';
+import ProgressDecorator from '../../ProgressBar/OrderProgress/ProgressDecorator';
 
-export default function ServiceCard({ name, type, description }) {
+export default function ServiceCard({ name, type, description, selection, stage, handleClick }) {
   return (
     <div className={styles.serviceCart}>
       <article className={styles.service}>
@@ -17,7 +18,13 @@ export default function ServiceCard({ name, type, description }) {
           <p className={styles.serviceText}>{description}</p>
         </div>
         <div className={styles.buttonBlock}>
-          <button className={styles.serviceButton}>Choose exam</button>
+          {selection === name && stage >= 2 ? (
+            <ProgressDecorator decoratorName="small" success={true} disabled />
+          ) : (
+            <button onClick={() => handleClick(name)} className={styles.serviceButton}>
+              Choose exam
+            </button>
+          )}
         </div>
       </article>
     </div>

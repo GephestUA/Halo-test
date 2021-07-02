@@ -16,6 +16,9 @@ const ProgressDecorator = (props) => {
       case 3: {
         return styles.progressThree;
       }
+      case 'small': {
+        return styles.progressSmall;
+      }
       default:
         return '';
     }
@@ -34,7 +37,7 @@ const ProgressDecorator = (props) => {
     >
       <div className={styles.progressItem}>
         <span className={`${decoratorCurrentPage(nameDecorator)} ${successStage}`}></span>
-        <p className={styles.texInDecorator}>Name and phone</p>
+        {nameDecorator === 'small' || <p className={styles.texInDecorator}>Name and phone</p>}
       </div>
     </NavLink>
   );

@@ -61,6 +61,12 @@
   background-image: url(../../../assets/image/3.svg);
 }
 
+.progressSmall {
+  @include progress-item();
+  width: 32px;
+  height: 32px;
+}
+
 .progressDecorator[disabled] {
   span {
     background-color: #dddddd;
