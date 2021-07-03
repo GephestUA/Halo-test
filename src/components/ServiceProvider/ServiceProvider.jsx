@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProviderCard from './ProviderCard/ProviderCard';
 import MainTitle from '../../common/MainTitle/MainTitle';
 import { Redirect } from 'react-router';
@@ -13,7 +13,10 @@ import { getStageInfo } from '../../store/app-controller-reducer';
 export default function ServiceProvider() {
   const stage = useSelector((state) => state.appControls.stage);
   const services = useSelector((state) => state.services);
-  const name = useInput('', { checkName: true });
+  const { name: userName, surname, phone } = useSelector((state) => state.userInfo);
+  const name = useInput('', '');
+
+  const [filterInput, setFilterInput] = useState('');
 
   const serviceSelected = services.serviceSelected;
   const providerSelected = services.providerSelected;
@@ -21,7 +24,8 @@ export default function ServiceProvider() {
   const filterProviders = services.service
     .filter((item) => item.name === serviceSelected)
     .map((item) => item.providers)
-    .flat();
+    .flat()
+    .filter((item) => item.city.toLocaleLowerCase().startsWith(filterInput.toLocaleLowerCase()));
 
   const dispatch = useDispatch();
 
@@ -29,9 +33,18 @@ export default function ServiceProvider() {
     dispatch(selectProvider(name));
   };
 
+  const showRegisterInformation = () => {
+    console.group('Order Details');
+    console.log(userName, surname, phone);
+    console.log(serviceSelected);
+    console.log(providerSelected);
+    console.groupEnd();
+  };
+
   const handleSubmitStage3 = (e) => {
     e.preventDefault();
     dispatch(getStageInfo(4));
+    showRegisterInformation();
   };
 
   if (stage < 3) {
@@ -42,14 +55,20 @@ export default function ServiceProvider() {
     <div>
       <MainTitle>Select your service provider</MainTitle>
       <div className={styles.providerWrapper}>
-        <div className={`${s.inputBox}  ${name.noValid && name.checkName.status && s.errorInput}`}>
+        <div className={s.inputBox}>
           <span className={s.details}>Full name</span>
-          {name.noValid && name.checkName.status && <p className={s.errors}>{name.checkName.text}</p>}
-          <input {...name.bind} name="name" type="text" placeholder="Jason" />
+          <input
+            {...name.bind}
+            value={filterInput}
+            name="name"
+            type="text"
+            placeholder="London"
+            onChange={(e) => setFilterInput(e.target.value)}
+          />
         </div>
         <h3 className={styles.headerTitleCardBlock}>All clinics</h3>
         <div className={styles.providerWrapperCard}>
-          {[...filterProviders].map((item) => (
+          {filterProviders.map((item) => (
             <ProviderCard
               key={`${item.city}_${item.name}`}
               name={item.name}
