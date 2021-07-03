@@ -1,0 +1,14 @@
+.buttonBlock {
+  position: absolute;
+  right: 80%;
+}
+
+.button {
+  border: 1px solid #eaeaea;
+  box-sizing: border-box;
+  border-radius: 9px;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  background: center no-repeat url(../../assets/image/buttonBack.svg);
+}
