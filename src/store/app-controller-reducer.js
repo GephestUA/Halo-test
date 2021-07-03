@@ -1,7 +1,7 @@
 const STAGE_RECEIVED = 'STAGE-RECEIVED';
 
 let initialValue = {
-  stage: 1,
+  stage: 2,
 };
 
 const appControllerReducer = (state = initialValue, action) => {
