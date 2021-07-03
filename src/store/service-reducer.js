@@ -1,9 +1,11 @@
 const SERVICE_RECEIVED = 'SERVICE-RECEIVED';
 const SERVICE_SELECT = 'SERVICE-SELECT';
+const PROVIDER_SELECT = 'PROVIDER-SELECT';
 
 let initialValue = {
   service: [],
   serviceSelected: '',
+  providerSelected: '',
 };
 
 const userServiceReducer = (state = initialValue, action) => {
@@ -13,6 +15,9 @@ const userServiceReducer = (state = initialValue, action) => {
     }
     case SERVICE_SELECT: {
       return { ...state, serviceSelected: action.payload };
+    }
+    case PROVIDER_SELECT: {
+      return { ...state, providerSelected: action.payload };
     }
     default:
       return state;
@@ -25,6 +30,10 @@ export const getService = (payload) => ({
 });
 export const selectService = (payload) => ({
   type: SERVICE_SELECT,
+  payload,
+});
+export const selectProvider = (payload) => ({
+  type: PROVIDER_SELECT,
   payload,
 });
 

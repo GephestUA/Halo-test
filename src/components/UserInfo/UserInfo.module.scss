@@ -1,6 +1,6 @@
 @import '../../common/helpers.scss';
 
-form .userDetails {
+.userDetails {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -16,7 +16,7 @@ form .userDetails {
   }
 }
 
-form .userDetails .inputBox {
+.inputBox {
   width: calc(100% / 2 - 20px);
   margin-bottom: 20px;
 
@@ -27,7 +27,7 @@ form .userDetails .inputBox {
   }
 }
 
-.userDetails .inputBox {
+.inputBox {
   input {
     height: 45px;
     width: 100%;
@@ -52,7 +52,7 @@ form .userDetails .inputBox {
     border: 1px solid #eb5757;
   }
 }
-.userDetails .errorInput {
+.errorInput {
   input {
     background: rgba(235, 87, 87, 0.2);
     border: 1px solid #eb5757;
@@ -70,7 +70,7 @@ form .userDetails .inputBox {
   }
 }
 
-.userDetails .inputBox input:focus {
+.inputBox input:focus {
   opacity: 1;
   border-color: #005bff;
   box-shadow: 0px 0px 0px 2px #2f80ed;
@@ -78,11 +78,11 @@ form .userDetails .inputBox {
   background: #ffffff;
 }
 
-.userDetails .inputBox input:valid {
+.inputBox input:valid {
   opacity: 1;
 }
 
-.userDetails .inputBox input:hover {
+.inputBox input:hover {
   background: #ffffff;
   border: 1px solid #005bff;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
