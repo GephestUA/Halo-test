@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const ProgressDecorator = ({ decoratorName, progressAfterLine, disabled, success, text, navigate }) => {
-  let nameDecorator = decoratorName;
   const selectedService = useSelector((state) => state.services.serviceSelected);
   const stage = useSelector((state) => state.appControls.stage);
   const changeText = stage > 2 && text === 'Service';
@@ -40,8 +39,8 @@ const ProgressDecorator = ({ decoratorName, progressAfterLine, disabled, success
       data-success={success}
     >
       <div className={styles.progressItem}>
-        <span className={`${decoratorCurrentPage(nameDecorator)} ${successStage}`}></span>
-        {nameDecorator === 'small' || (
+        <span className={`${decoratorCurrentPage(decoratorName)} ${successStage}`}></span>
+        {decoratorName === 'small' || (
           <p className={styles.texInDecorator}>
             <span className={changeText ? styles.texInDecoratorSmall : undefined}>{changeText && text}</span>
             {changeText && <br />}

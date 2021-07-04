@@ -11,10 +11,12 @@ export default function OrderProgress() {
     return amountStages;
   };
 
+  const arrNames = decoratorsNames('Name and phone', 'Service', 'Service provider');
+
   return (
     <div>
       <div className={styles.progress}>
-        {decoratorsNames('Name and phone', 'Service', 'Service provider').map((name, index) => (
+        {arrNames.map((name, index) => (
           <ProgressDecorator
             key={name}
             text={name}
@@ -27,23 +29,15 @@ export default function OrderProgress() {
         ))}
       </div>
       <div className={styles.mobileProgress}>
-        <MobileProgressDecorator success={stage >= 2 ? true : false} navigate={'/'}>
-          Enter name
-        </MobileProgressDecorator>
-        <MobileProgressDecorator
-          disabled={stage <= 1 ? true : false}
-          success={stage >= 3 ? true : false}
-          navigate={'/stage2'}
-        >
-          Select the service
-        </MobileProgressDecorator>
-        <MobileProgressDecorator
-          disabled={stage <= 2 ? true : false}
-          success={stage >= 4 ? true : false}
-          navigate={'/stage3'}
-        >
-          Select clinics
-        </MobileProgressDecorator>
+        {arrNames.map((name, index) => (
+          <MobileProgressDecorator
+            key={name}
+            text={name}
+            disabled={stage <= index || false}
+            success={stage > index + 1 || false}
+            navigate={`/stage${index + 1}`}
+          />
+        ))}
       </div>
     </div>
   );
