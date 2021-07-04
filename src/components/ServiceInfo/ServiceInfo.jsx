@@ -19,7 +19,7 @@ export default function ServiceInfo() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  let activeButton = !selection;
+  const activeButton = !selection;
 
   useEffect(() => {
     dispatch(getDataService());

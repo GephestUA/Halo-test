@@ -13,13 +13,15 @@ export default function ProviderCard({ handleClick, name, location, city, select
           <div className={styles.providerTitleBlock}>
             <h3 className={styles.providerTitle}>{name}</h3>
           </div>
-          <div className={styles.providerCityBlock}>
-            <p>City:</p>
-            <p>{city}</p>
-          </div>
-          <div className={styles.providerLocationBlock}>
-            <p>Location:</p>
-            <p>{location}</p>
+          <div className className={styles.providerInfoBlock}>
+            <div className={styles.providerCityBlock}>
+              <p>City:</p>
+              <p>{city}</p>
+            </div>
+            <div className={styles.providerLocationBlock}>
+              <p>Location:</p>
+              <p>{location}</p>
+            </div>
           </div>
           <div className={styles.checkedBlock}>
             {selection === name ? <ProgressDecorator decoratorName="small" success={true} disabled /> : <div></div>}

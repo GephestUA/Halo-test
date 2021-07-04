@@ -18,21 +18,34 @@
   align-items: center;
 }
 
+.providerTitleBlock {
+  min-width: 25%;
+}
+
 .providerTitle {
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
   color: #000000;
   margin-left: 19px;
-  max-width: 165px;
 }
 
+.providerInfoBlock {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-left: 15px;
+}
 .providerCityBlock {
-  margin-left: 48px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .providerLocationBlock {
-  margin-left: 270px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .providerCityBlock,
@@ -48,7 +61,7 @@
 }
 
 .checkedBlock {
-  margin-left: 80px;
+  margin-right: 32px;
   div {
     width: 32px;
     height: 32px;
