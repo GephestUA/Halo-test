@@ -1,4 +1,4 @@
-const STAGE_RECEIVED = 'STAGE-RECEIVED';
+const STAGE_RECEIVED = 'app-controller/STAGE-RECEIVED';
 
 let initialValue = {
   stage: 1,

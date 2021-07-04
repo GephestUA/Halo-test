@@ -43,7 +43,7 @@ const ProgressDecorator = (props) => {
         <span className={`${decoratorCurrentPage(nameDecorator)} ${successStage}`}></span>
         {nameDecorator === 'small' || (
           <p className={styles.texInDecorator}>
-            <span className={changeText && styles.texInDecoratorSmall}>{changeText && props.text}</span>
+            <span className={changeText ? styles.texInDecoratorSmall : undefined}>{changeText && props.text}</span>
             {changeText && <br />}
             {changeText ? selectedService : props.text}
           </p>

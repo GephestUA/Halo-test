@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import useInput from '../../customHooks/customInput';
 import { getStageInfo } from '../../store/app-controller-reducer';
-import { getUserData } from '../../store/user-info-reducer';
+import { setUserData } from '../../store/user-info-reducer';
 import ButtonService from '../common/ButtonService/ButtonSendForm';
 import s from './UserInfo.module.scss';
 import MainTitle from '../common/MainTitle/MainTitle';
@@ -13,15 +13,15 @@ export default function UserInfo() {
   const surname = useInput('', { checkName: true });
   const phone = useInput('', { checkPhone: true });
 
-  const stage2History = useHistory();
+  const history = useHistory();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userInfo);
 
   const handleSubmitStage1 = (e) => {
     e.preventDefault();
-    dispatch(getUserData(name.value, surname.value, phone.value));
+    dispatch(setUserData(name.value, surname.value, phone.value));
     dispatch(getStageInfo(2));
-    stage2History.push('/stage2');
+    history.push('/stage2');
   };
 
   let activeButton = name.checkName.status || surname.checkName.status || phone.checkPhone.status;
