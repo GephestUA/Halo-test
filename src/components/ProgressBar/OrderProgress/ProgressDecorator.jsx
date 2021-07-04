@@ -3,11 +3,11 @@ import styles from './ProgressDecorator.module.scss';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const ProgressDecorator = (props) => {
-  let nameDecorator = props.decoratorName;
+const ProgressDecorator = ({ decoratorName, progressAfterLine, disabled, success, text, navigate }) => {
+  let nameDecorator = decoratorName;
   const selectedService = useSelector((state) => state.services.serviceSelected);
   const stage = useSelector((state) => state.appControls.stage);
-  const changeText = stage > 2 && props.text === 'Service';
+  const changeText = stage > 2 && text === 'Service';
 
   const decoratorCurrentPage = (name) => {
     switch (name) {
@@ -28,24 +28,24 @@ const ProgressDecorator = (props) => {
     }
   };
 
-  let line = props.progressAfterLine && styles.progressAfterLine;
-  let disabledLine = props.disabled && styles.disabledLine;
-  let successStage = props.success && styles.successStage;
+  let line = progressAfterLine && styles.progressAfterLine;
+  let disabledLine = disabled && styles.disabledLine;
+  let successStage = success && styles.successStage;
 
   return (
     <NavLink
-      to={`${props.navigate}`}
+      to={`${navigate}`}
       className={`${line} ${styles.progressDecorator} ${disabledLine}`}
-      disabled={props.disabled}
-      data-success={props.success}
+      disabled={disabled}
+      data-success={success}
     >
       <div className={styles.progressItem}>
         <span className={`${decoratorCurrentPage(nameDecorator)} ${successStage}`}></span>
         {nameDecorator === 'small' || (
           <p className={styles.texInDecorator}>
-            <span className={changeText ? styles.texInDecoratorSmall : undefined}>{changeText && props.text}</span>
+            <span className={changeText ? styles.texInDecoratorSmall : undefined}>{changeText && text}</span>
             {changeText && <br />}
-            {changeText ? selectedService : props.text}
+            {changeText ? selectedService : text}
           </p>
         )}
       </div>
