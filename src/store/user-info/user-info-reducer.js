@@ -1,4 +1,4 @@
-const DATA_RECEIVED = 'user-info/DATA-RECEIVED';
+import { DATA_RECEIVED } from './action';
 
 let initialValue = {
   name: '',
@@ -15,14 +15,5 @@ const userInfoReducer = (state = initialValue, action) => {
       return state;
   }
 };
-
-export const setUserData = (name, surname, phone) => ({
-  type: DATA_RECEIVED,
-  payload: {
-    name,
-    surname,
-    phone,
-  },
-});
 
 export default userInfoReducer;

@@ -1,7 +1,7 @@
-const STAGE_RECEIVED = 'app-controller/STAGE-RECEIVED';
+import { STAGE_RECEIVED } from './action';
 
 let initialValue = {
-  stage: 2,
+  stage: 1,
 };
 
 const appControllerReducer = (state = initialValue, action) => {
@@ -13,12 +13,5 @@ const appControllerReducer = (state = initialValue, action) => {
       return state;
   }
 };
-
-export const getStageInfo = (stage) => ({
-  type: STAGE_RECEIVED,
-  payload: {
-    stage,
-  },
-});
 
 export default appControllerReducer;

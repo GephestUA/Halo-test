@@ -1,8 +1,8 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import appControllerReducer from './app-controller-reducer';
-import userInfoReducer from './user-info-reducer';
-import userServiceReducer from './service-reducer';
+import appControllerReducer from './app-controller/app-controller-reducer';
+import userInfoReducer from './user-info/user-info-reducer';
+import userServiceReducer from './service-reducer/service-reducer';
 import thunk from 'redux-thunk';
 
 let reducers = combineReducers({

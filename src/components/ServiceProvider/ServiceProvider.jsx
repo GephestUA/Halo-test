@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import ButtonService from '../common/ButtonService/ButtonSendForm';
 import s from '../UserInfo/UserInfo.module.scss';
 import useInput from '../../customHooks/customInput';
-import { selectProvider } from '../../store/service-reducer';
-import { getStageInfo } from '../../store/app-controller-reducer';
+import { selectProvider } from '../../store/service-reducer/action-creators';
+import { getStageInfo } from '../../store/app-controller/action-creators';
 
 export default function ServiceProvider() {
   const stage = useSelector((state) => state.appControls.stage);

@@ -5,9 +5,10 @@ import styles from './ServiceInfo.module.scss';
 import ButtonService from '../common/ButtonService/ButtonSendForm';
 import ServiceCard from './ServiceCard/ServiceCard';
 import MainTitle from '../common/MainTitle/MainTitle';
-import { getDataService, selectService } from '../../store/service-reducer';
+import { selectService } from '../../store/service-reducer/action-creators';
+import { getDataService } from '../../store/service-reducer/thunk-creators';
 import { useHistory } from 'react-router-dom';
-import { getStageInfo } from '../../store/app-controller-reducer';
+import { getStageInfo } from '../../store/app-controller/action-creators';
 
 export default function ServiceInfo() {
   const stage = useSelector((state) => state.appControls.stage);
