@@ -9,6 +9,7 @@ import { selectService } from '../../store/service-reducer/action-creators';
 import { getDataService } from '../../store/service-reducer/thunk-creators';
 import { useHistory } from 'react-router-dom';
 import { getStageInfo } from '../../store/app-controller/action-creators';
+import { Loader } from '../common/Loader/Loader';
 
 export default function ServiceInfo() {
   const stage = useSelector((state) => state.appControls.stage);
@@ -42,17 +43,21 @@ export default function ServiceInfo() {
     <div>
       <MainTitle text="Select the service" />
       <div className={styles.serviceWrapper}>
-        {services.map((item) => (
-          <ServiceCard
-            key={`${item.name}`}
-            name={item.name}
-            type={item.type}
-            description={item.description}
-            selection={selection}
-            stage={stage}
-            handleClick={handleSelect}
-          />
-        ))}
+        {services.length > 0 ? (
+          services.map((item) => (
+            <ServiceCard
+              key={`${item.name}`}
+              name={item.name}
+              type={item.type}
+              description={item.description}
+              selection={selection}
+              stage={stage}
+              handleClick={handleSelect}
+            />
+          ))
+        ) : (
+          <Loader />
+        )}
       </div>
       <div className={styles.nextButton}>
         <ButtonService btnName="Continue schedule" btnStatus={activeButton} handleClickButton={handleSubmitStage2} />
