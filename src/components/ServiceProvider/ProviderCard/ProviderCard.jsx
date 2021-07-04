@@ -1,5 +1,5 @@
 import styles from './ProviderCard.module.scss';
-import provider from '../../../assets/image/Provider.png';
+import provider from '../../../assets/image/png/Provider.png';
 import ProgressDecorator from '../../ProgressBar/OrderProgress/ProgressDecorator';
 
 export default function ProviderCard({ handleClick, name, location, city, selection }) {

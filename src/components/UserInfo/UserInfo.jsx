@@ -35,9 +35,7 @@ export default function UserInfo() {
   return (
     <form
       noValidate={true}
-      onSubmit={(e) => {
-        handleSubmitStage1(e);
-      }}
+      onSubmit={handleSubmitStage1}
     >
       <MainTitle>Enter name and phone number</MainTitle>
       <div className={s.userDetails}>

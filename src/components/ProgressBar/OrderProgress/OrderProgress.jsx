@@ -12,16 +12,16 @@ export default function OrderProgress() {
       <div className={styles.progress}>
         <ProgressDecorator
           decoratorName={1}
-          progressAfterLine="true"
+          progressAfterLine
           success={stage >= 2 ? true : false}
           navigate={'/'}
         />
         <ProgressDecorator
           decoratorName={2}
-          progressAfterLine="true"
+          progressAfterLine
           disabled={stage <= 1 ? true : false}
           success={stage >= 3 ? true : false}
-          navigate={'/stage2'}
+          navigate='/stage2'
         />
         <ProgressDecorator
           decoratorName={3}

@@ -47,18 +47,18 @@
 
 .progressOne {
   @include progress-item();
-  background-image: url(../../../assets/image/1.svg);
+  background-image: url(../../../assets/image/svg/1.svg);
   background-size: 7px 15px;
 }
 
 .progressTwo {
   @include progress-item();
-  background-image: url(../../../assets/image/2.svg);
+  background-image: url(../../../assets/image/svg/2.svg);
 }
 
 .progressThree {
   @include progress-item();
-  background-image: url(../../../assets/image/3.svg);
+  background-image: url(../../../assets/image/svg/3.svg);
 }
 
 .progressSmall {
@@ -79,7 +79,7 @@
 .progressDecorator[data-success='true'] {
   .successStage {
     background-color: #07a58e;
-    background-image: url(../../../assets/image/Success.svg);
+    background-image: url(../../../assets/image/svg/Success.svg);
     background-size: 17px 14px;
   }
 }

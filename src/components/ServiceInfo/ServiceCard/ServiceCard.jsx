@@ -1,5 +1,5 @@
 import styles from './ServiceCard.module.scss';
-import ServiceBG from '../../../assets/image/ServiceBG.png';
+import ServiceBG from '../../../assets/image/png/ServiceBG.png';
 import ProgressDecorator from '../../ProgressBar/OrderProgress/ProgressDecorator';
 
 export default function ServiceCard({ name, type, description, selection, stage, handleClick }) {
