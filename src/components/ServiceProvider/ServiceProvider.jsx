@@ -53,7 +53,7 @@ export default function ServiceProvider() {
 
   return (
     <div>
-      <MainTitle>Select your service provider</MainTitle>
+      <MainTitle text="Select your service provider" />
       <div className={styles.providerWrapper}>
         <div className={s.inputBox}>
           <span className={s.details}>Full name</span>

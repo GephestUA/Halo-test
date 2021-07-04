@@ -39,7 +39,7 @@ export default function ServiceInfo() {
 
   return (
     <div>
-      <MainTitle> Select the service</MainTitle>
+      <MainTitle text="Select the service" />
       <div className={styles.serviceWrapper}>
         {services.map((item) => (
           <ServiceCard
