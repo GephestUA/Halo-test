@@ -16,8 +16,6 @@ export default function ServiceProvider() {
   const { name: userName, surname, phone } = useSelector((state) => state.userInfo);
   const name = useInput('', '');
 
-  const [filterInput, setFilterInput] = useState('');
-
   const serviceSelected = services.serviceSelected;
   const providerSelected = services.providerSelected;
 
@@ -25,7 +23,7 @@ export default function ServiceProvider() {
     .filter((item) => item.name === serviceSelected)
     .map((item) => item.providers)
     .flat()
-    .filter((item) => item.city.toLocaleLowerCase().startsWith(filterInput.toLocaleLowerCase()));
+    .filter((item) => item.city.toLocaleLowerCase().startsWith(name.value.toLocaleLowerCase()));
 
   const dispatch = useDispatch();
 
@@ -57,14 +55,7 @@ export default function ServiceProvider() {
       <div className={styles.providerWrapper}>
         <div className={s.inputBox}>
           <span className={s.details}>Full name</span>
-          <input
-            {...name.bind}
-            value={filterInput}
-            name="name"
-            type="text"
-            placeholder="London"
-            onChange={(e) => setFilterInput(e.target.value)}
-          />
+          <input {...name.bind} value={name.value} name="search" type="text" placeholder="London" />
         </div>
         <h3 className={styles.headerTitleCardBlock}>All clinics</h3>
         <div className={styles.providerWrapperCard}>
