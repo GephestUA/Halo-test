@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './ProgressDecorator.module.scss';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const ProgressDecorator = (props) => {
   let nameDecorator = props.decoratorName;
+  const selectedService = useSelector((state) => state.services.serviceSelected);
+  const stage = useSelector((state) => state.appControls.stage);
+  const changeText = stage > 2 && props.text === 'Service';
 
   const decoratorCurrentPage = (name) => {
     switch (name) {
@@ -24,9 +28,9 @@ const ProgressDecorator = (props) => {
     }
   };
 
-  let line = props.progressAfterLine ? styles.progressAfterLine : '';
-  let disabledLine = props.disabled ? styles.disabledLine : '';
-  let successStage = props.success ? styles.successStage : '';
+  let line = props.progressAfterLine && styles.progressAfterLine;
+  let disabledLine = props.disabled && styles.disabledLine;
+  let successStage = props.success && styles.successStage;
 
   return (
     <NavLink
@@ -37,7 +41,13 @@ const ProgressDecorator = (props) => {
     >
       <div className={styles.progressItem}>
         <span className={`${decoratorCurrentPage(nameDecorator)} ${successStage}`}></span>
-        {nameDecorator === 'small' || <p className={styles.texInDecorator}>Name and phone</p>}
+        {nameDecorator === 'small' || (
+          <p className={styles.texInDecorator}>
+            <span className={changeText && styles.texInDecoratorSmall}>{changeText && props.text}</span>
+            {changeText && <br />}
+            {changeText ? selectedService : props.text}
+          </p>
+        )}
       </div>
     </NavLink>
   );

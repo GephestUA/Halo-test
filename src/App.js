@@ -13,7 +13,7 @@ function App() {
         <ProgressBar />
         <section className={styles.container}>
           <Switch>
-            <Route exact path="/" render={() => <UserInfo />} />
+            <Route path="/stage1" render={() => <UserInfo />} />
             <Route path="/stage2" render={() => <ServiceInfo />} />
             <Route path="/stage3" render={() => <ServiceProvider />} />
           </Switch>

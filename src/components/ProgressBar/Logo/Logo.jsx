@@ -11,7 +11,7 @@ export default function Logo() {
     <div className={styles.logoBlock}>
       {stage >= 2 && <ButtonBack />}
       <div>
-        <a href="/">
+        <a href="/stage1">
           <img src={MaskGroup} width="36px" height="32px" />
         </a>
       </div>
