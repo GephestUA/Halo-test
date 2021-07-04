@@ -1,12 +1,15 @@
-import { STAGE_RECEIVED } from './action';
+import { STAGE_RECEIVED, STAGE_RESET } from './action';
 
-let initialValue = {
+export const initialValue = {
   stage: 1,
 };
 
 const appControllerReducer = (state = initialValue, action) => {
   switch (action.type) {
     case STAGE_RECEIVED: {
+      return { ...state, ...action.payload };
+    }
+    case STAGE_RESET: {
       return { ...state, ...action.payload };
     }
     default:
