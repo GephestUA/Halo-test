@@ -5,7 +5,7 @@ import useInput from '../../customHooks/customInput';
 import { getStageInfo } from '../../store/app-controller/action-creators';
 import { setUserData } from '../../store/user-info/action-creators';
 import ButtonService from '../common/ButtonService/ButtonSendForm';
-import s from './UserInfo.module.scss';
+import styles from './UserInfo.module.scss';
 import MainTitle from '../common/MainTitle/MainTitle';
 
 export default function UserInfo() {
@@ -24,7 +24,7 @@ export default function UserInfo() {
     history.push('/stage2');
   };
 
-  let activeButton = name.checkName.status || surname.checkName.status || phone.checkPhone.status;
+  const activeButton = name.checkName.status || surname.checkName.status || phone.checkPhone.status;
 
   useEffect(() => {
     name.setValue(state.name);
@@ -32,27 +32,33 @@ export default function UserInfo() {
     phone.setValue(state.phone);
   }, [state.name, state.surname, state.phone]);
 
+  const showErrorMessage = (inputName, errorName) => {
+    return (
+      inputName.noValid && inputName[errorName].status && <p className={styles.errors}>{inputName[errorName].text}</p>
+    );
+  };
+
   return (
     <form noValidate={true} onSubmit={handleSubmitStage1}>
       <MainTitle text="Enter name and phone number" />
-      <div className={s.userDetails}>
-        <div className={`${s.inputBox}  ${name.noValid && name.checkName.status && s.errorInput}`}>
-          <span className={s.details}>Full name</span>
-          {name.noValid && name.checkName.status && <p className={s.errors}>{name.checkName.text}</p>}
+      <div className={styles.userDetails}>
+        <div className={`${styles.inputBox}  ${name.noValid && name.checkName.status && styles.errorInput}`}>
+          <span className={styles.details}>Full name</span>
+          {showErrorMessage(name, 'checkName')}
           <input {...name.bind} name="name" type="text" placeholder="Jason" />
         </div>
-        <div className={`${s.inputBox}  ${surname.noValid && surname.checkName.status && s.errorInput}`}>
-          <span className={s.details}></span>
-          {surname.noValid && surname.checkName.status && <p className={s.errors}>{surname.checkName.text}</p>}
+        <div className={`${styles.inputBox}  ${surname.noValid && surname.checkName.status && styles.errorInput}`}>
+          <span className={styles.details}></span>
+          {showErrorMessage(surname, 'checkName')}
           <input {...surname.bind} name="surname" type="text" placeholder="Statham" />
         </div>
-        <div className={`${s.inputBox}  ${phone.noValid && phone.checkPhone.status && s.errorInput}`}>
-          <span className={s.details}>Phone number</span>
-          {phone.noValid && phone.checkPhone.status && <p className={s.errors}>{phone.checkPhone.text}</p>}
+        <div className={`${styles.inputBox}  ${phone.noValid && phone.checkPhone.status && styles.errorInput}`}>
+          <span className={styles.details}>Phone number</span>
+          {showErrorMessage(phone, 'checkPhone')}
           <input {...phone.bind} name="phone" type="text" placeholder="(555) 555-5555" />
         </div>
       </div>
-      <div className={s.buttonWrapper}>
+      <div className={styles.buttonWrapper}>
         <ButtonService btnName="Choose service" btnStatus={activeButton} />
       </div>
     </form>
