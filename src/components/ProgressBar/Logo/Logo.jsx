@@ -1,7 +1,7 @@
 import React from 'react';
 import MaskGroup from '../../../assets/image/svg/MaskGroup.svg';
 import styles from './Logo.module.scss';
-import ButtonBack from '../../../common/ButtonBack/ButtonBack';
+import ButtonBack from '../../common/ButtonBack/ButtonBack';
 import { useSelector } from 'react-redux';
 
 export default function Logo() {

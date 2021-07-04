@@ -4,9 +4,9 @@ import { useHistory } from 'react-router-dom';
 import useInput from '../../customHooks/customInput';
 import { getStageInfo } from '../../store/app-controller-reducer';
 import { getUserData } from '../../store/user-info-reducer';
-import ButtonService from './ButtonService/ButtonSendForm';
+import ButtonService from '../common/ButtonService/ButtonSendForm';
 import s from './UserInfo.module.scss';
-import MainTitle from '../../common/MainTitle/MainTitle';
+import MainTitle from '../common/MainTitle/MainTitle';
 
 export default function UserInfo() {
   const name = useInput('', { checkName: true });
@@ -33,10 +33,7 @@ export default function UserInfo() {
   }, [state.name, state.surname, state.phone]);
 
   return (
-    <form
-      noValidate={true}
-      onSubmit={handleSubmitStage1}
-    >
+    <form noValidate={true} onSubmit={handleSubmitStage1}>
       <MainTitle>Enter name and phone number</MainTitle>
       <div className={s.userDetails}>
         <div className={`${s.inputBox}  ${name.noValid && name.checkName.status && s.errorInput}`}>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import ProviderCard from './ProviderCard/ProviderCard';
-import MainTitle from '../../common/MainTitle/MainTitle';
+import MainTitle from '../common/MainTitle/MainTitle';
 import { Redirect } from 'react-router';
 import styles from './ServiceProvider.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import ButtonService from '../UserInfo/ButtonService/ButtonSendForm';
+import ButtonService from '../common/ButtonService/ButtonSendForm';
 import s from '../UserInfo/UserInfo.module.scss';
 import useInput from '../../customHooks/customInput';
 import { selectProvider } from '../../store/service-reducer';
