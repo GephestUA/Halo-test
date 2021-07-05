@@ -20,7 +20,7 @@ export default function ServiceCard({ name, type, description, selection, stage,
         </div>
         <div className={styles.buttonBlock}>
           {selection === name && stage >= 2 ? (
-            <SuccessOrderDecorator decoratorName="small" success={true} disabled />
+            <SuccessOrderDecorator decoratorName="small" />
           ) : (
             <button onClick={() => handleClick(name)} className={styles.serviceButton}>
               Choose exam

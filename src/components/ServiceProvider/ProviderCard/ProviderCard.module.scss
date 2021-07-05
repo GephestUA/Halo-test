@@ -62,8 +62,6 @@
 
 .checkedBlock {
   margin-right: 32px;
-  div {
-    width: 32px;
-    height: 32px;
-  }
+  min-width: 32px;
+  min-height: 32px;
 }

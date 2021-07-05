@@ -5,7 +5,7 @@ import { Redirect } from 'react-router';
 import styles from './ServiceProvider.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import ButtonService from '../common/ButtonService/ButtonSendForm';
-import s from '../UserInfo/UserInfo.module.scss';
+import stylesInput from '../UserInfo/UserInfo.module.scss';
 import useInput from '../../customHooks/customInput';
 import { selectProvider } from '../../store/service-reducer/action-creators';
 import { getStageInfo } from '../../store/app-controller/action-creators';
@@ -53,8 +53,8 @@ export default function ServiceProvider() {
     <div>
       <MainTitle text="Select your service provider" />
       <div className={styles.providerWrapper}>
-        <div className={s.inputBox}>
-          <span className={s.details}>Full name</span>
+        <div className={stylesInput.inputBox}>
+          <span className={stylesInput.details}>Full name</span>
           <input {...name.bind} value={name.value} name="search" type="text" placeholder="London" />
         </div>
         <h3 className={styles.headerTitleCardBlock}>All clinics</h3>
