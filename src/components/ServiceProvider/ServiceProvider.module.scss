@@ -5,6 +5,13 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  margin-bottom: 38px;
+
+  @media (max-width: 768px) {
+    & {
+      margin-bottom: 20px;
+    }
+  }
 }
 
 .providerWrapperCard {
@@ -19,4 +26,21 @@
   line-height: 19px;
   color: #000000;
   margin-bottom: 16px;
+}
+
+.nextButton {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  input {
+    width: 176px;
+  }
+
+  @media (max-width: 950px) {
+    display: block;
+    input {
+      width: 100%;
+    }
+  }
 }

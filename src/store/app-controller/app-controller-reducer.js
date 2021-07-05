@@ -1,7 +1,7 @@
 import { STAGE_RECEIVED, STAGE_RESET } from './action';
 
 export const initialValue = {
-  stage: 1,
+  stage: 3,
 };
 
 const appControllerReducer = (state = initialValue, action) => {
