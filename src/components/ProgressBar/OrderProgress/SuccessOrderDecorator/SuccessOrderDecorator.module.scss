@@ -1,0 +1,13 @@
+@import '../../../common/helpers.scss';
+
+.successStage {
+  @include progress-item();
+  background-color: #07a58e;
+  background-image: url(../../../../assets/image/svg/Success.svg);
+  background-size: 17px 14px;
+}
+
+.progressSmall {
+  width: 32px;
+  height: 32px;
+}

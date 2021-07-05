@@ -1,6 +1,7 @@
 import styles from './ServiceCard.module.scss';
 import ServiceBG from '../../../assets/image/png/ServiceBG.png';
 import ProgressDecorator from '../../ProgressBar/OrderProgress/ProgressDecorator';
+import SuccessOrderDecorator from '../../ProgressBar/OrderProgress/SuccessOrderDecorator/SuccessOrderDecorator';
 
 export default function ServiceCard({ name, type, description, selection, stage, handleClick }) {
   return (
@@ -19,7 +20,7 @@ export default function ServiceCard({ name, type, description, selection, stage,
         </div>
         <div className={styles.buttonBlock}>
           {selection === name && stage >= 2 ? (
-            <ProgressDecorator decoratorName="small" success={true} disabled />
+            <SuccessOrderDecorator decoratorName="small" success={true} disabled />
           ) : (
             <button onClick={() => handleClick(name)} className={styles.serviceButton}>
               Choose exam

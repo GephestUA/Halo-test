@@ -1,6 +1,7 @@
 import styles from './ProviderCard.module.scss';
 import provider from '../../../assets/image/png/Provider.png';
 import ProgressDecorator from '../../ProgressBar/OrderProgress/ProgressDecorator';
+import SuccessOrderDecorator from '../../ProgressBar/OrderProgress/SuccessOrderDecorator/SuccessOrderDecorator';
 
 export default function ProviderCard({ handleClick, name, location, city, selection }) {
   return (
@@ -24,7 +25,7 @@ export default function ProviderCard({ handleClick, name, location, city, select
             </div>
           </div>
           <div className={styles.checkedBlock}>
-            {selection === name ? <ProgressDecorator decoratorName="small" success={true} disabled /> : <div></div>}
+            {selection === name ? <SuccessOrderDecorator decoratorName="small" /> : <div></div>}
           </div>
         </div>
       </div>
