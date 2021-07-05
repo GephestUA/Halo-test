@@ -3,7 +3,7 @@
 .serviceCart {
   margin-bottom: 15px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: $laptop) {
     width: 50%;
   }
 }
@@ -14,7 +14,7 @@
   border-radius: 5px;
   max-width: 280px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: $laptop) {
     max-width: none;
   }
 }
@@ -49,7 +49,7 @@
   line-height: 19px;
   margin-bottom: 8px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: $laptop) {
     @include adaptive-value(font-size, 16, 13);
     @include adaptive-value(line-height, 19, 15);
     flex-direction: column;
@@ -68,7 +68,7 @@
     font-weight: 600;
     font-size: 16px;
     color: #4d4d4d;
-    @media (max-width: 1024px) {
+    @media (max-width: $laptop) {
       @include adaptive-value(font-size, 16, 13);
     }
   }
@@ -86,7 +86,7 @@
   padding: 5px;
   text-align: center;
   margin-bottom: 16px;
-  @media (max-width: 1024px) {
+  @media (max-width: $laptop) {
     @include adaptive-value(font-size, 11, 8);
     @include adaptive-value(line-height, 13, 10);
     @include adaptive-value(margin-bottom, 19, 12);
@@ -101,7 +101,7 @@
   color: #acacac;
   margin-bottom: 16px;
   min-height: 80px;
-  @media (max-width: 1024px) {
+  @media (max-width: $laptop) {
     @include adaptive-value(font-size, 13, 10);
     @include adaptive-value(line-height, 20, 15);
     @include adaptive-value(margin-bottom, 16, 10);
@@ -126,7 +126,7 @@
     color: #005bff;
     cursor: pointer;
 
-    @media (max-width: 1024px) {
+    @media (max-width: $laptop) {
       @include adaptive-value(font-size, 16, 11);
       @include adaptive-value(line-height, 19, 14);
     }

@@ -33,7 +33,7 @@
   transition: 1s;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .button input {
     @include adaptive-value(font-size, 18, 11);
     @include adaptive-value(line-height, 21, 14);
