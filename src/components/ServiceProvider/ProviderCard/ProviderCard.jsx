@@ -7,11 +7,13 @@ export default function ProviderCard({ handleClick, name, location, city, select
     <article className={styles.provider} onClick={() => handleClick(name)}>
       <div className={styles.outerBorder}>
         <div className={styles.innerBorder}>
-          <div className={styles.providerImageBlock}>
-            <img src={provider} alt="provider image" />
-          </div>
-          <div className={styles.providerTitleBlock}>
-            <h3 className={styles.providerTitle}>{name}</h3>
+          <div className={styles.imageTitleBlock}>
+            <div className={styles.providerImageBlock}>
+              <img src={provider} alt="provider image" />
+            </div>
+            <div className={styles.providerTitleBlock}>
+              <h3 className={styles.providerTitle}>{name}</h3>
+            </div>
           </div>
           <div className className={styles.providerInfoBlock}>
             <div className={styles.providerCityBlock}>
@@ -22,9 +24,9 @@ export default function ProviderCard({ handleClick, name, location, city, select
               <p>Location:</p>
               <p>{location}</p>
             </div>
-          </div>
-          <div className={styles.checkedBlock}>
-            {selection === name && <SuccessOrderDecorator decoratorName="small" />}
+            <div className={styles.checkedBlock}>
+              {selection === name && <SuccessOrderDecorator decoratorName="small" />}
+            </div>
           </div>
         </div>
       </div>
