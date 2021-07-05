@@ -3,8 +3,17 @@ import styles from './ProgressDecorator.module.scss';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import SuccessOrderDecorator from './SuccessOrderDecorator/SuccessOrderDecorator';
+import MobileProgressDecorator from './MobileProgressDecorator';
 
-const ProgressDecorator = ({ decoratorName, progressAfterLine, disabled, success, text, navigate }) => {
+const ProgressDecorator = ({
+  decoratorName,
+  progressAfterLine,
+  disabled,
+  success,
+  text,
+  navigate,
+  showMobileProgress,
+}) => {
   const selectedService = useSelector((state) => state.services.serviceSelected);
   const stage = useSelector((state) => state.appControls.stage);
   const changeText = stage > 2 && text === 'Service';
@@ -29,21 +38,34 @@ const ProgressDecorator = ({ decoratorName, progressAfterLine, disabled, success
   let disabledLine = disabled && styles.disabledLine;
 
   return (
-    <NavLink
-      to={`${navigate}`}
-      className={`${line} ${styles.progressDecorator} ${disabledLine}`}
-      disabled={disabled}
-      data-success={success}
-    >
-      <div className={styles.progressItem}>
-        {success ? <SuccessOrderDecorator /> : <span className={decoratorCurrentPage(decoratorName)} />}
-        <p className={styles.texInDecorator}>
-          <span className={changeText ? styles.texInDecoratorSmall : undefined}>{changeText && text}</span>
-          {changeText && <br />}
-          {changeText ? selectedService : text}
-        </p>
-      </div>
-    </NavLink>
+    <>
+      {showMobileProgress && (
+        <MobileProgressDecorator
+          key={text}
+          text={text}
+          disabled={disabled}
+          success={success}
+          navigate={navigate}
+          changeText={changeText}
+          selectedService={selectedService}
+        />
+      )}
+      <NavLink
+        to={`${navigate}`}
+        className={`${line} ${styles.progressDecorator} ${disabledLine}`}
+        disabled={disabled}
+        data-success={success}
+      >
+        <div className={styles.progressItem}>
+          {success ? <SuccessOrderDecorator /> : <span className={decoratorCurrentPage(decoratorName)} />}
+          <p className={styles.texInDecorator}>
+            <span className={changeText ? styles.texInDecoratorSmall : undefined}>{changeText && text}</span>
+            {changeText && <br />}
+            {changeText ? selectedService : text}
+          </p>
+        </div>
+      </NavLink>
+    </>
   );
 };
 

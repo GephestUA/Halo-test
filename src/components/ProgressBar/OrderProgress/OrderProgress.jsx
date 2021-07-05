@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styles from './OrderProgress.module.scss';
 import ProgressDecorator from './ProgressDecorator';
-import MobileProgressDecorator from './MobileProgressDecorator';
 
 export default function OrderProgress() {
   const stage = useSelector((state) => state.appControls.stage);
@@ -25,20 +24,11 @@ export default function OrderProgress() {
             disabled={stage <= index || false}
             success={stage > index + 1 || false}
             navigate={`/stage${index + 1}`}
+            showMobileProgress
           />
         ))}
       </div>
-      <div className={styles.mobileProgress}>
-        {arrNames.map((name, index) => (
-          <MobileProgressDecorator
-            key={name}
-            text={name}
-            disabled={stage <= index || false}
-            success={stage > index + 1 || false}
-            navigate={`/stage${index + 1}`}
-          />
-        ))}
-      </div>
+      {/* <div className={styles.mobileProgress}></div> */}
     </div>
   );
 }

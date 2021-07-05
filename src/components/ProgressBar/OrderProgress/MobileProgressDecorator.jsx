@@ -3,11 +3,8 @@ import mobileStyles from './MobileProgressDecorator.module.scss';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-export default function OrderProgress({ disabled, text, success, navigate }) {
+export default function OrderProgress({ disabled, text, success, navigate, selectedService, changeText }) {
   let disabledLine = disabled && mobileStyles.disabledLine;
-  const selectedService = useSelector((state) => state.services.serviceSelected);
-  const stage = useSelector((state) => state.appControls.stage);
-  const changeText = stage > 2 && text === 'Service';
 
   return (
     <NavLink
