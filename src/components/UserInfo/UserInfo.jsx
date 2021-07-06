@@ -44,7 +44,7 @@ export default function UserInfo() {
       <div className={styles.userDetails}>
         <div
           className={`${styles.inputBox}  ${
-            name.noValid && name.checkName.status ? styles.errorInput : styles.validInput
+            name.noValid && name.checkName.status ? styles.errorInput : name.value && styles.validInput
           }`}
         >
           <span className={styles.details}>Full name</span>
@@ -53,7 +53,7 @@ export default function UserInfo() {
         </div>
         <div
           className={`${styles.inputBox}  ${
-            surname.noValid && surname.checkName.status ? styles.errorInput : styles.validInput
+            surname.noValid && surname.checkName.status ? styles.errorInput : surname.value && styles.validInput
           }`}
         >
           <span className={styles.details}></span>
@@ -62,7 +62,7 @@ export default function UserInfo() {
         </div>
         <div
           className={`${styles.inputBox}  ${
-            phone.noValid && phone.checkPhone.status ? styles.errorInput : styles.validInput
+            phone.noValid && phone.checkPhone.status ? styles.errorInput : phone.value && styles.validInput
           }`}
         >
           <span className={styles.details}>Phone number</span>
