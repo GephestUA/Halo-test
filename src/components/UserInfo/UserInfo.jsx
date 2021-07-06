@@ -38,33 +38,27 @@ export default function UserInfo() {
     );
   };
 
+  const getInputStyles = (inputName, check) => {
+    return `${styles.inputBox}  ${
+      inputName.noValid && inputName[check].status ? styles.errorInput : inputName.value && styles.validInput
+    }`;
+  };
+
   return (
     <form noValidate={true} onSubmit={handleSubmitStage1}>
       <MainTitle text="Enter name and phone number" />
       <div className={styles.userDetails}>
-        <div
-          className={`${styles.inputBox}  ${
-            name.noValid && name.checkName.status ? styles.errorInput : name.value && styles.validInput
-          }`}
-        >
+        <div className={getInputStyles(name, 'checkName')}>
           <span className={styles.details}>Full name</span>
           {showErrorMessage(name, 'checkName')}
           <input {...name.bind} name="name" type="text" placeholder="Jason" />
         </div>
-        <div
-          className={`${styles.inputBox}  ${
-            surname.noValid && surname.checkName.status ? styles.errorInput : surname.value && styles.validInput
-          }`}
-        >
+        <div className={getInputStyles(surname, 'checkName')}>
           <span className={styles.details}></span>
           {showErrorMessage(surname, 'checkName')}
           <input {...surname.bind} name="surname" type="text" placeholder="Statham" />
         </div>
-        <div
-          className={`${styles.inputBox}  ${
-            phone.noValid && phone.checkPhone.status ? styles.errorInput : phone.value && styles.validInput
-          }`}
-        >
+        <div className={getInputStyles(phone, 'checkPhone')}>
           <span className={styles.details}>Phone number</span>
           {showErrorMessage(phone, 'checkPhone')}
           <input {...phone.bind} name="phone" type="text" placeholder="(555) 555-5555" />
