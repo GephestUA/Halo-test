@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ProviderCard from './ProviderCard/ProviderCard';
 import MainTitle from '../common/MainTitle/MainTitle';
 import { Redirect } from 'react-router';
@@ -14,7 +14,7 @@ export default function ServiceProvider() {
   const stage = useSelector((state) => state.appControls.stage);
   const services = useSelector((state) => state.services);
   const { name: userName, surname, phone } = useSelector((state) => state.userInfo);
-  const name = useInput('', '');
+  const search = useInput('', '');
 
   const serviceSelected = services.serviceSelected;
   const providerSelected = services.providerSelected;
@@ -23,7 +23,7 @@ export default function ServiceProvider() {
     .filter((item) => item.name === serviceSelected)
     .map((item) => item.providers)
     .flat()
-    .filter((item) => item.city.toLocaleLowerCase().startsWith(name.value.toLocaleLowerCase()));
+    .filter((item) => item.city.toLocaleLowerCase().startsWith(search.value.toLocaleLowerCase()));
 
   const dispatch = useDispatch();
 
@@ -53,9 +53,9 @@ export default function ServiceProvider() {
     <div>
       <MainTitle text="Select your service provider" />
       <div className={styles.providerWrapper}>
-        <div className={stylesInput.inputBox}>
+        <div className={`${stylesInput.inputBox} ${search.value && stylesInput.validInput}`}>
           <span className={stylesInput.details}>Full name</span>
-          <input {...name.bind} value={name.value} name="search" type="text" placeholder="London" />
+          <input {...search.bind} value={search.value} name="search" type="text" placeholder="London" />
         </div>
         <h3 className={styles.headerTitleCardBlock}>All clinics</h3>
         <div className={styles.providerWrapperCard}>
