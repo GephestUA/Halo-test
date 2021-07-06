@@ -36,7 +36,7 @@
     font-size: 16px;
     line-height: 19px;
     color: #171a28;
-    opacity: 0.7;
+    opacity: 0.4;
     padding-left: 16px;
 
     @media (max-width: $tablet) {
@@ -54,6 +54,7 @@
   input {
     background: rgba(235, 87, 87, 0.2);
     border: 1px solid #eb5757;
+    opacity: 1;
   }
 }
 
@@ -76,7 +77,7 @@
   background: #ffffff;
 }
 
-.inputBox input:valid {
+.validInput input {
   opacity: 1;
 }
 
