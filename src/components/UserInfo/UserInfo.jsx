@@ -7,6 +7,7 @@ import { setUserData } from '../../store/user-info/action-creators';
 import ButtonService from '../common/ButtonService/ButtonSendForm';
 import styles from './UserInfo.module.scss';
 import MainTitle from '../common/MainTitle/MainTitle';
+import { selectService } from '../../store/service-reducer/action-creators';
 
 export default function UserInfo() {
   const name = useInput('', { checkName: true });
@@ -16,10 +17,12 @@ export default function UserInfo() {
   const history = useHistory();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userInfo);
+  const serviceSelected = useSelector((state) => state.services.serviceSelected);
 
   const handleSubmitStage1 = (e) => {
     e.preventDefault();
     dispatch(setUserData(name.value, surname.value, phone.value));
+    serviceSelected && dispatch(selectService(''));
     dispatch(getStageInfo(2));
     history.push('/stage2');
   };

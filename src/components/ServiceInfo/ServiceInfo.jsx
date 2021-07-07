@@ -5,7 +5,7 @@ import styles from './ServiceInfo.module.scss';
 import ButtonService from '../common/ButtonService/ButtonSendForm';
 import ServiceCard from './ServiceCard/ServiceCard';
 import MainTitle from '../common/MainTitle/MainTitle';
-import { selectService } from '../../store/service-reducer/action-creators';
+import { selectProvider, selectService } from '../../store/service-reducer/action-creators';
 import { getDataService } from '../../store/service-reducer/thunk-creators';
 import { useHistory } from 'react-router-dom';
 import { getStageInfo } from '../../store/app-controller/action-creators';
@@ -15,6 +15,7 @@ export default function ServiceInfo() {
   const stage = useSelector((state) => state.appControls.stage);
   const services = useSelector((state) => state.services.service);
   const selection = useSelector((state) => state.services.serviceSelected);
+  const providerSelected = useSelector((state) => state.services.providerSelected);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -31,6 +32,7 @@ export default function ServiceInfo() {
 
   const handleSubmitStage2 = (e) => {
     e.preventDefault();
+    providerSelected && dispatch(selectProvider(''));
     dispatch(getStageInfo(3));
     history.push('/stage3');
   };
