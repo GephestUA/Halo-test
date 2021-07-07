@@ -6,16 +6,12 @@ import ProgressDecorator from './ProgressDecorator';
 export default function OrderProgress() {
   const stage = useSelector((state) => state.appControls.stage);
 
-  const decoratorsNames = (...amountStages) => {
-    return amountStages;
-  };
-
-  const arrNames = decoratorsNames('Name and phone', 'Service', 'Service provider');
+  const decoratorsNames = ['Name and phone', 'Service', 'Service provider'];
 
   return (
     <div>
       <div className={styles.progress}>
-        {arrNames.map((name, index) => (
+        {decoratorsNames.map((name, index) => (
           <ProgressDecorator
             key={name}
             text={name}
@@ -28,7 +24,6 @@ export default function OrderProgress() {
           />
         ))}
       </div>
-      {/* <div className={styles.mobileProgress}></div> */}
     </div>
   );
 }

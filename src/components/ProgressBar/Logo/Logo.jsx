@@ -16,7 +16,7 @@ export default function Logo() {
       {stage > 1 && location.pathname !== '/stage1' && <ButtonBack />}
       <div>
         <Link to="/stage1">
-          <img src={MaskGroup} width="36px" height="32px" alt="logo" onClick={dispatch(resetStage)} />
+          <img src={MaskGroup} width="36px" height="32px" alt="logo" onClick={() => dispatch(resetStage())} />
         </Link>
       </div>
     </div>
