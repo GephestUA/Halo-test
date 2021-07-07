@@ -1,6 +1,6 @@
 import styles from './ProviderCard.module.scss';
 import provider from '../../../assets/image/png/Provider.png';
-import SuccessOrderDecorator from '../../ProgressBar/OrderProgress/SuccessOrderDecorator/SuccessOrderDecorator';
+import SuccessOrderDecorator from '../../common/SuccessOrderDecorator/SuccessOrderDecorator';
 
 export default function ProviderCard({ handleClick, name, location, city, selection }) {
   return (

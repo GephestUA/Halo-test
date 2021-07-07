@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ProgressDecorator.module.scss';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import SuccessOrderDecorator from './SuccessOrderDecorator/SuccessOrderDecorator';
+import SuccessOrderDecorator from '../../common/SuccessOrderDecorator/SuccessOrderDecorator';
 import MobileProgressDecorator from './MobileProgressDecorator';
 
 const ProgressDecorator = ({

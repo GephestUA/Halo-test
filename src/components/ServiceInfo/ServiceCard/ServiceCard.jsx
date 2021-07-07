@@ -1,6 +1,6 @@
 import styles from './ServiceCard.module.scss';
 import ServiceBG from '../../../assets/image/png/ServiceBG.png';
-import SuccessOrderDecorator from '../../ProgressBar/OrderProgress/SuccessOrderDecorator/SuccessOrderDecorator';
+import SuccessOrderDecorator from '../../common/SuccessOrderDecorator/SuccessOrderDecorator';
 
 export default function ServiceCard({ name, type, description, selection, stage, handleClick }) {
   return (
