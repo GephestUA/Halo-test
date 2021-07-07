@@ -10,7 +10,6 @@ export default function useValidation(value, validations) {
     status: true,
     text: '',
   });
-  const [validForm, setValidForm] = useState(false);
 
   useEffect(() => {
     for (const validation in validations) {
@@ -42,22 +41,15 @@ export default function useValidation(value, validations) {
         case 'isEmpty':
           value ? setEmpty(false) : setEmpty(true);
           break;
+        default:
+          return;
       }
     }
   }, [value]);
-
-  // useEffect(() => {
-  //   if (checkName || checkPhone) {
-  //     setValidForm(false);
-  //   } else {
-  //     setValidForm(true);
-  //   }
-  // }, [checkName, checkPhone]);
 
   return {
     checkName,
     isEmpty,
     checkPhone,
-    validForm,
   };
 }

@@ -9,13 +9,13 @@ export default function ProviderCard({ handleClick, name, location, city, select
         <div className={styles.innerBorder}>
           <div className={styles.imageTitleBlock}>
             <div className={styles.providerImageBlock}>
-              <img src={provider} alt="provider image" />
+              <img src={provider} alt={name} />
             </div>
             <div className={styles.providerTitleBlock}>
               <h3 className={styles.providerTitle}>{name}</h3>
             </div>
           </div>
-          <div className className={styles.providerInfoBlock}>
+          <div className={styles.providerInfoBlock}>
             <div className={styles.providerCityBlock}>
               <p>City:</p>
               <p>{city}</p>

@@ -11,10 +11,10 @@ export default function Logo() {
 
   return (
     <div className={styles.logoBlock}>
-      {stage > 1 && location.pathname != '/stage1' && <ButtonBack />}
+      {stage > 1 && location.pathname !== '/stage1' && <ButtonBack />}
       <div>
         <a href="/stage1">
-          <img src={MaskGroup} width="36px" height="32px" />
+          <img src={MaskGroup} width="36px" height="32px" alt="logo" />
         </a>
       </div>
     </div>

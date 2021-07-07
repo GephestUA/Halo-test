@@ -1,6 +1,5 @@
 import styles from './ServiceCard.module.scss';
 import ServiceBG from '../../../assets/image/png/ServiceBG.png';
-import ProgressDecorator from '../../ProgressBar/OrderProgress/ProgressDecorator';
 import SuccessOrderDecorator from '../../ProgressBar/OrderProgress/SuccessOrderDecorator/SuccessOrderDecorator';
 
 export default function ServiceCard({ name, type, description, selection, stage, handleClick }) {
@@ -8,7 +7,7 @@ export default function ServiceCard({ name, type, description, selection, stage,
     <div className={styles.serviceCart}>
       <article className={styles.service}>
         <div className={styles.serviceImageBG}>
-          <img src={ServiceBG} className={styles.serviceImage}></img>
+          <img src={ServiceBG} className={styles.serviceImage} alt={name}></img>
         </div>
         <div className={styles.serviceDescription}>
           <div className={styles.serviceHeader}>
