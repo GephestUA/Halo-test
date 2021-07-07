@@ -3,7 +3,6 @@ import styles from './ProgressDecorator.module.scss';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import SuccessOrderDecorator from '../../common/SuccessOrderDecorator/SuccessOrderDecorator';
-import MobileProgressDecorator from './MobileProgressDecorator';
 
 const ProgressDecorator = ({
   decoratorName,
@@ -39,30 +38,23 @@ const ProgressDecorator = ({
 
   return (
     <>
-      {showMobileProgress && (
-        <MobileProgressDecorator
-          key={text}
-          text={text}
-          disabled={disabled}
-          success={success}
-          navigate={navigate}
-          changeText={changeText}
-          selectedService={selectedService}
-        />
-      )}
       <NavLink
         to={`${navigate}`}
         className={`${line} ${styles.progressDecorator} ${disabledLine}`}
         disabled={disabled}
         data-success={success}
+        data-mobile={showMobileProgress}
       >
-        <div className={styles.progressItem}>
+        <p
+          className={`${styles.texInDecorator} ${changeText && styles.texInDecoratorSmall}`}
+          data-mobile={showMobileProgress}
+        >
+          <span>{changeText && text}</span>
+          {changeText && <br />}
+          {changeText ? selectedService : text}
+        </p>
+        <div className={styles.progressItem} data-mobile={showMobileProgress}>
           {success ? <SuccessOrderDecorator /> : <span className={decoratorCurrentPage(decoratorName)} />}
-          <p className={styles.texInDecorator}>
-            <span className={changeText ? styles.texInDecoratorSmall : undefined}>{changeText && text}</span>
-            {changeText && <br />}
-            {changeText ? selectedService : text}
-          </p>
         </div>
       </NavLink>
     </>

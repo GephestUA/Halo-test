@@ -2,31 +2,43 @@
 
 .progressDecorator {
   text-decoration: none;
+  position: relative;
   .texInDecorator {
-    padding-left: 16px;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
     margin: 0;
     display: inline;
     color: #000000;
+    position: absolute;
+    min-width: 140px;
+    transform: translate(50%, 80%);
 
-    @media (max-width: $tablet) {
+    @media (max-width: $tablet), (max-width: 850px) and (orientation: landscape) {
       @include adaptive-value(font-size, 16, 10);
       @include adaptive-value(padding-left, 16, 10);
+      &[data-mobile] {
+        position: static;
+        color: white;
+        line-height: 18px;
+        font-weight: 600;
+      }
     }
   }
 
   .texInDecoratorSmall {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 18px;
+    transform: translate(50%, 0);
 
-    color: #777676;
+    span {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 18px;
+      color: #777676;
+    }
 
     @media (max-width: $tablet) {
-      @include adaptive-value(font-size, 14, 8);
+      @include adaptive-value(font-size, 14, 10);
       @include adaptive-value(padding-left, 16, 10);
     }
   }
@@ -42,9 +54,20 @@
   margin-left: 24px;
 }
 
+@media (max-width: $tablet), (max-width: 850px) and (orientation: landscape) {
+  .progressAfterLine[data-mobile]::after {
+    content: none;
+  }
+}
+
 .progressAfterLine[disabled] {
   &::after {
     background-color: #dddddd;
+  }
+  @media (max-width: $tablet), (max-width: 850px) and (orientation: landscape) {
+    &[data-mobile]::after {
+      content: none;
+    }
   }
 }
 
@@ -52,11 +75,31 @@
   &::after {
     background-color: #07a58e;
   }
+
+  @media (max-width: $tablet), (max-width: 850px) and (orientation: landscape) {
+    &[data-mobile]::after {
+      content: none;
+    }
+  }
 }
 
 .progressItem {
   display: flex;
   align-items: center;
+
+  @media (max-width: $tablet) {
+    &[data-mobile] {
+      display: none;
+    }
+  }
+
+  @media (max-width: 850px) {
+    @media (orientation: landscape) {
+      &[data-mobile] {
+        display: none;
+      }
+    }
+  }
 }
 
 .progressOne {
@@ -102,16 +145,28 @@
   pointer-events: none;
 }
 
-@media (max-width: $tablet) {
-  .progressDecorator {
-    display: none;
-  }
-}
+@media (max-width: $tablet), (max-width: 850px) and (orientation: landscape) {
+  .progressDecorator[data-mobile] {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #0b3a66;
+    background-color: #ff9b05;
+    text-decoration: none;
+    padding: 6px;
 
-@media (max-width: 850px) {
-  @media (orientation: landscape) {
-    .progressDecorator {
-      display: none;
+    &[disabled] {
+      background-color: #dddd;
+    }
+    &[data-success='true'] {
+      background-color: #07a58e;
+    }
+
+    .texInDecoratorSmall {
+      span {
+        color: rgb(8, 8, 8);
+        font-weight: 600;
+      }
     }
   }
 }
