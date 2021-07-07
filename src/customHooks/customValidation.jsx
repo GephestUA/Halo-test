@@ -15,7 +15,7 @@ export default function useValidation(value, validations) {
     for (const validation in validations) {
       switch (validation) {
         case 'checkName':
-          const regular = /^[a-zA-Z][a-zA-Z0-9-_\.]{1,24}$/;
+          const regular = /^[a-zA-Z][a-zA-Z0-9-_.]{1,24}$/;
           regular.test(value)
             ? setCheckName({
                 status: false,
@@ -42,7 +42,7 @@ export default function useValidation(value, validations) {
           value ? setEmpty(false) : setEmpty(true);
           break;
         default:
-          return;
+          return validations;
       }
     }
   }, [value]);

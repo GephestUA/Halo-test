@@ -125,6 +125,7 @@
 }
 
 .progressDecorator[disabled] {
+  pointer-events: none;
   span {
     background-color: #dddddd;
   }
@@ -139,10 +140,6 @@
     background-image: url(../../../assets/image/svg/Success.svg);
     background-size: 17px 14px;
   }
-}
-
-.disabledLine {
-  pointer-events: none;
 }
 
 @media (max-width: $tablet), (max-width: 850px) and (orientation: landscape) {
