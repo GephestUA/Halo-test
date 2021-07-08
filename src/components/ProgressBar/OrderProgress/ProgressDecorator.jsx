@@ -33,31 +33,29 @@ const ProgressDecorator = ({
     }
   };
 
-  let line = progressAfterLine && styles.progressAfterLine;
-  let disabledLine = disabled && styles.disabledLine;
+  const line = progressAfterLine && styles.progressAfterLine;
+  const disabledLine = disabled && styles.disabledLine;
 
   return (
-    <>
-      <NavLink
-        to={`${navigate}`}
-        className={`${line} ${styles.progressDecorator} ${disabledLine}`}
-        disabled={disabled}
-        data-success={success}
+    <NavLink
+      to={`${navigate}`}
+      className={`${line} ${styles.progressDecorator} ${disabledLine}`}
+      disabled={disabled}
+      data-success={success}
+      data-mobile={showMobileProgress}
+    >
+      <p
+        className={`${styles.texInDecorator} ${changeText && styles.texInDecoratorSmall}`}
         data-mobile={showMobileProgress}
       >
-        <p
-          className={`${styles.texInDecorator} ${changeText && styles.texInDecoratorSmall}`}
-          data-mobile={showMobileProgress}
-        >
-          <span>{changeText && text}</span>
-          {changeText && <br />}
-          {changeText ? selectedService : text}
-        </p>
-        <div className={styles.progressItem} data-mobile={showMobileProgress}>
-          {success ? <SuccessOrderDecorator /> : <span className={decoratorCurrentPage(decoratorName)} />}
-        </div>
-      </NavLink>
-    </>
+        <span>{changeText && text}</span>
+        {changeText && <br />}
+        {changeText ? selectedService : text}
+      </p>
+      <div className={styles.progressItem} data-mobile={showMobileProgress}>
+        {success ? <SuccessOrderDecorator /> : <span className={decoratorCurrentPage(decoratorName)} />}
+      </div>
+    </NavLink>
   );
 };
 

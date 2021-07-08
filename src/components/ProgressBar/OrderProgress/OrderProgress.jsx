@@ -9,21 +9,19 @@ export default function OrderProgress() {
   const decoratorsNames = ['Name and phone', 'Service', 'Service provider'];
 
   return (
-    <div>
-      <div className={styles.progress}>
-        {decoratorsNames.map((name, index) => (
-          <ProgressDecorator
-            key={name}
-            text={name}
-            decoratorName={index + 1}
-            progressAfterLine
-            disabled={stage <= index || false}
-            success={stage > index + 1 || false}
-            navigate={`/stage${index + 1}`}
-            showMobileProgress
-          />
-        ))}
-      </div>
+    <div className={styles.progress}>
+      {decoratorsNames.map((name, index) => (
+        <ProgressDecorator
+          key={name}
+          text={name}
+          decoratorName={index + 1}
+          progressAfterLine
+          disabled={stage <= index || false}
+          success={stage > index + 1 || false}
+          navigate={`/stage${index + 1}`}
+          showMobileProgress
+        />
+      ))}
     </div>
   );
 }

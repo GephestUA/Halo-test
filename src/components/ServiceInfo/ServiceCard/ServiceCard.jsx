@@ -2,7 +2,7 @@ import styles from './ServiceCard.module.scss';
 import ServiceBG from '../../../assets/image/png/ServiceBG.png';
 import SuccessOrderDecorator from '../../common/SuccessOrderDecorator/SuccessOrderDecorator';
 
-export default function ServiceCard({ name, type, description, selection, stage, handleClick }) {
+export default function ServiceCard({ name, type, description, selection, handleClick }) {
   return (
     <div className={styles.serviceCart}>
       <article className={styles.service}>
@@ -18,7 +18,7 @@ export default function ServiceCard({ name, type, description, selection, stage,
           <p className={styles.serviceText}>{description}</p>
         </div>
         <div className={styles.buttonBlock}>
-          {selection === name && stage >= 2 ? (
+          {selection === name ? (
             <SuccessOrderDecorator decoratorName="small" />
           ) : (
             <button onClick={() => handleClick(name)} className={styles.serviceButton}>

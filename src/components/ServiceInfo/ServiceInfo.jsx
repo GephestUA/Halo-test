@@ -42,10 +42,10 @@ export default function ServiceInfo() {
   }
 
   return (
-    <div>
+    <>
       <MainTitle text="Select the service" />
       <div className={styles.serviceWrapper}>
-        {services.length > 0 ? (
+        {services.length ? (
           services.map((item) => (
             <ServiceCard
               key={`${item.name}`}
@@ -53,7 +53,6 @@ export default function ServiceInfo() {
               type={item.type}
               description={item.description}
               selection={selection}
-              stage={stage}
               handleClick={handleSelect}
             />
           ))
@@ -64,6 +63,6 @@ export default function ServiceInfo() {
       <div className={styles.nextButton}>
         <ButtonService btnName="Continue schedule" btnStatus={activeButton} handleClickButton={handleSubmitStage2} />
       </div>
-    </div>
+    </>
   );
 }

@@ -42,10 +42,10 @@ export default function useValidation(value, validations) {
           value ? setEmpty(false) : setEmpty(true);
           break;
         default:
-          return validations;
+          return;
       }
     }
-  }, [value, validations]);
+  }, [value]);
 
   return {
     checkName,

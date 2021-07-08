@@ -23,9 +23,7 @@
     flex-direction: column;
     min-width: 100%;
   }
-}
 
-.inputBox {
   input {
     height: 45px;
     width: 100%;
@@ -50,6 +48,7 @@
     border: 1px solid #eb5757;
   }
 }
+
 .errorInput {
   input {
     background: rgba(235, 87, 87, 0.2);
