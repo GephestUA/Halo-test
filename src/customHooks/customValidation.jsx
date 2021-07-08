@@ -45,7 +45,7 @@ export default function useValidation(value, validations) {
           return validations;
       }
     }
-  }, [value]);
+  }, [value, validations]);
 
   return {
     checkName,

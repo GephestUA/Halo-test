@@ -24,7 +24,7 @@ export default function ServiceInfo() {
 
   useEffect(() => {
     dispatch(getDataService());
-  }, []);
+  }, [dispatch]);
 
   const handleSelect = (name) => {
     dispatch(selectService(name));

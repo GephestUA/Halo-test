@@ -4,6 +4,7 @@ import useValidation from './customValidation';
 export default function useInput(initialValue, validations) {
   const [value, setValue] = useState(initialValue);
   const [noValid, setValid] = useState(false);
+
   const valid = useValidation(value, validations);
 
   const onChange = (e) => {

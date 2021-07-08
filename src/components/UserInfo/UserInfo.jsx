@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import useInput from '../../customHooks/customInput';
@@ -10,9 +10,13 @@ import MainTitle from '../common/MainTitle/MainTitle';
 import { selectService } from '../../store/service-reducer/action-creators';
 
 export default function UserInfo() {
-  const name = useInput('', { checkName: true });
-  const surname = useInput('', { checkName: true });
-  const phone = useInput('', { checkPhone: true });
+  const validationOptionsName = useRef({ checkName: true });
+  const validationOptionsSurname = useRef({ checkName: true });
+  const validationOptionsPhone = useRef({ checkPhone: true });
+
+  const name = useInput('', validationOptionsName.current);
+  const surname = useInput('', validationOptionsSurname.current);
+  const phone = useInput('', validationOptionsPhone.current);
 
   const history = useHistory();
   const dispatch = useDispatch();
