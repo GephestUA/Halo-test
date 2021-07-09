@@ -40,9 +40,7 @@ export default function UserInfo() {
   };
 
   const getInputStyles = (inputName, check) => {
-    return `${styles.inputBox}  ${
-      inputName.noValid && inputName[check].status ? styles.errorInput : inputName.value && styles.validInput
-    }`;
+    return `${styles.inputBox}  ${inputName.noValid && inputName[check].status && styles.errorInput}`;
   };
 
   return (
